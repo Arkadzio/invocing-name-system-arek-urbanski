@@ -25,6 +25,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+
     // Use the latest Groovy version for Spock testing
     testImplementation 'org.codehaus.groovy:groovy:3.0.13'
 
@@ -34,6 +36,13 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+
+    implementation 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
 application {
@@ -88,7 +97,7 @@ jacocoTestCoverageVerification {
         rule {
             limit {
                 counter = 'LINE'
-                maximum = 0.70
+                minimum = 0.70
             }
         }
     }
