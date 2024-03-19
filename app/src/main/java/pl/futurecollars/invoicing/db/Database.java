@@ -5,6 +5,7 @@ import java.util.Optional;
 import pl.futurecollars.invoicing.model.Invoice;
 
 public interface Database {
+
   int save(Invoice invoice);
 
   Optional<Invoice> getById(int id);
