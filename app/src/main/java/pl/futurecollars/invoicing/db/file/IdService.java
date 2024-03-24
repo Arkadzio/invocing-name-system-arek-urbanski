@@ -8,14 +8,12 @@ public class IdService {
 
   private final FilesService filesService;
   private final Path filePath;
+  private int nextId = 1;
 
   public IdService(FilesService filesService, Path filePath) {
     this.filesService = filesService;
     this.filePath = filePath;
   }
-
-  private int nextId = 1;
-
 
   public int getNextIdAndIncrement() {
     try {
