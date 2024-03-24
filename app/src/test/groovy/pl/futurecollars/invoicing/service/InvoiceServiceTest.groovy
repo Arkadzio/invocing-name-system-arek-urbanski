@@ -19,8 +19,10 @@ class InvoiceServiceTest extends Specification {
         Database database = Mock(Database)
         InvoiceService service = new InvoiceService(database)
         Invoice invoice = new Invoice()
+
         when:
         service.save(invoice)
+
         then:
         1 * database.save(invoice) >> 1
     }
@@ -28,8 +30,10 @@ class InvoiceServiceTest extends Specification {
     def "calling delete() should delegate to database delete() method"() {
         given:
         def invoiceId = 123
+
         when:
         service.delete(invoiceId)
+
         then:
         1 * database.delete(invoiceId)
     }
@@ -37,8 +41,10 @@ class InvoiceServiceTest extends Specification {
     def "calling getById() should delegate to database getById() method"() {
         given:
         def invoiceId = 321
+
         when:
         service.getById(invoiceId)
+
         then:
         1 * database.getById(invoiceId)
     }
@@ -46,6 +52,7 @@ class InvoiceServiceTest extends Specification {
     def "calling getAll() should delegate to database getAll() method"() {
         when:
         service.getAll()
+
         then:
         1 * database.getAll()
     }
@@ -56,8 +63,10 @@ class InvoiceServiceTest extends Specification {
         InvoiceService service = new InvoiceService(database)
         Invoice updatedInvoice = new Invoice()
         updatedInvoice.id = 1
+
         when:
         service.update(1, updatedInvoice)
+        
         then:
         1 * database.update(1, updatedInvoice)
     }
