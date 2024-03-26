@@ -2,37 +2,43 @@ package pl.futurecollars.invoicing.db.file
 
 import pl.futurecollars.invoicing.utils.FilesService
 import spock.lang.Specification
-
+import spock.lang.Subject
 import java.nio.file.Files
-import java.nio.file.Path
 import java.nio.file.Paths
 
 class IdServiceTest extends Specification {
 
-    IdService idService = new IdService(new FilesService(), Paths.get("test_id.txt"))
+    @Subject
+    IdService idService
 
-    def "should increment next ID and return it"() {
-        given:
-        int initialId = idService.getNextIdAndIncrement()
-
-        when:
-        int nextId = idService.getNextIdAndIncrement()
-
-        then:
-        nextId == initialId + 1
+    def setup() {
+        def tempFilePath = Paths.get("temp-id-service-file.txt")
+        if (!Files.exists(tempFilePath)) {
+            Files.createFile(tempFilePath)
+        }
+        idService = new IdService(new FilesService(), tempFilePath)
     }
 
-    def "should initialize nextId with 1 if file is empty"() {
-        given:
-        Path filePath = Paths.get("empty_file.txt")
-        Files.deleteIfExists(filePath)
-        Files.createFile(filePath)
-        def filesService = new FilesService()
+    def cleanup() {
+        def tempFilePath = Paths.get("temp-id-service-file.txt")
+        Files.deleteIfExists(tempFilePath)
+    }
 
+    def "should return incremented id"() {
         when:
-        new IdService(filesService, filePath)
+        def id = idService.getNextIdAndIncrement()
 
         then:
-        Files.readAllLines(filePath).first() == "1"
+        id == 1
+    }
+
+    def "should return consecutive incremented ids"() {
+        when:
+        def firstId = idService.getNextIdAndIncrement()
+        def secondId = idService.getNextIdAndIncrement()
+
+        then:
+        firstId == 1
+        secondId == 2
     }
 }
