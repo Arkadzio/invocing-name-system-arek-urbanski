@@ -6,7 +6,6 @@ import java.util.List;
 import pl.futurecollars.invoicing.utils.FilesService;
 
 public class IdService {
-
   private final FilesService filesService;
   private final Path filePath;
   private int nextId = 1;
@@ -14,7 +13,6 @@ public class IdService {
   public IdService(FilesService filesService, Path filePath) {
     this.filesService = filesService;
     this.filePath = filePath;
-
 
     try {
       List<String> lines = filesService.readAllLines(filePath);
