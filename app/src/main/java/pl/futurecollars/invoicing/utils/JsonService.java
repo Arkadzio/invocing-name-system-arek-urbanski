@@ -9,18 +9,14 @@ public class JsonService {
 
   private final ObjectMapper mapper;
 
-  public JsonService(ObjectMapper mapper) {
-    this.mapper = mapper;
-
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.registerModule(new JavaTimeModule());
-    objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-    objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-
+  public JsonService(ObjectMapper objectMapper) {
+    mapper = objectMapper;
+    mapper.registerModule(new JavaTimeModule());
+    mapper.enable(SerializationFeature.INDENT_OUTPUT);
+    mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
   }
 
-  public String toJason(Object object) {
-
+  public String toJson(Object object) {
     try {
       return mapper.writeValueAsString(object);
     } catch (JsonProcessingException e) {

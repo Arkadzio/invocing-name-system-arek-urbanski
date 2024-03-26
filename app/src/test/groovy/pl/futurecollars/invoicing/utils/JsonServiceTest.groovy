@@ -17,11 +17,11 @@ class JsonServiceTest extends Specification {
         def testObject = [name: "Arek", age: 44]
 
         when:
-        def result = jsonService.toJason(testObject)
+        def result = jsonService.toJson(testObject)
 
         then:
-        def expectedJson = mapper.readTree('{"name":"Arek","age":44}')
-        def actualJson = mapper.readTree(result)
+        def expectedJson = mapper.writeValueAsString(testObject)
+        def actualJson = mapper.writeValueAsString(jsonService.toObject(result, Map))
         expectedJson == actualJson
     }
 

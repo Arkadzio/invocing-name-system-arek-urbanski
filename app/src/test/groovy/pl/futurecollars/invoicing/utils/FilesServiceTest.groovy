@@ -3,7 +3,6 @@ package pl.futurecollars.invoicing.utils
 import spock.lang.Specification
 
 import java.nio.file.Files
-import java.nio.file.NoSuchFileException
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -19,17 +18,19 @@ class FilesServiceTest extends Specification {
         def linesBefore = Files.readAllLines(filePath)
 
         when:
-        new FilesService().appendLineToFile(filePath, ["test"])
+        new FilesService().appendLineToFile(filePath, "test")
 
         then:
         def linesAfter = Files.readAllLines(filePath)
-        linesAfter == linesBefore + ["test"]
+        linesAfter == linesBefore + "test"
     }
 
     def "should write single line to file"() {
         given:
         Path filePath = Paths.get("test_file.txt")
-        Files.deleteIfExists(filePath)
+        if (!Files.exists(filePath)) {
+            Files.createFile(filePath)
+        }
 
         when:
         new FilesService().writeSingleLineToFile(filePath, "test")

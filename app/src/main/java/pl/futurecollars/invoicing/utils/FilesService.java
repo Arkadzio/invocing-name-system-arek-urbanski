@@ -8,12 +8,12 @@ import java.util.List;
 
 public class FilesService {
 
-  public void appendLineToFile(Path path, List<String> lines) throws IOException {
-    Files.write(path, lines, StandardOpenOption.APPEND);
+  public void appendLineToFile(Path path, String line) throws IOException {
+    Files.write(path, (line + System.lineSeparator()).getBytes(), StandardOpenOption.APPEND);
   }
 
   public void writeSingleLineToFile(Path path, String line) throws IOException {
-    Files.write(path, (line + System.lineSeparator()).getBytes());
+    Files.write(path, line.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
   }
 
   public void writeAllLinesToFile(Path path, List<String> lines) throws IOException {
