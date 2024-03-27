@@ -8,17 +8,17 @@ import pl.futurecollars.invoicing.utils.FilesService;
 public class IdService {
 
   private final FilesService filesService;
-  private final Path filePath;
+  private final Path idFilePath;
   private int nextId = 1;
 
-  public IdService(FilesService filesService, Path filePath) {
+  public IdService(Path idFilePath, FilesService filesService) {
+    this.idFilePath = idFilePath;
     this.filesService = filesService;
-    this.filePath = filePath;
 
     try {
-      List<String> lines = filesService.readAllLines(filePath);
+      List<String> lines = filesService.readAllLines(idFilePath);
       if (lines.isEmpty()) {
-        filesService.writeSingleLineToFile(filePath, "1");
+        filesService.writeSingleLineToFile(idFilePath, "1");
       } else {
         nextId = Integer.parseInt(lines.get(0));
       }
@@ -29,7 +29,7 @@ public class IdService {
 
   public int getNextIdAndIncrement() {
     try {
-      filesService.writeSingleLineToFile(filePath, String.valueOf(nextId + 1));
+      filesService.writeSingleLineToFile(idFilePath, String.valueOf(nextId + 1));
       return nextId++;
     } catch (IOException e) {
       throw new RuntimeException(e);

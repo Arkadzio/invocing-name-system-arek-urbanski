@@ -2,43 +2,51 @@ package pl.futurecollars.invoicing.db.file
 
 import pl.futurecollars.invoicing.utils.FilesService
 import spock.lang.Specification
-import spock.lang.Subject
 import java.nio.file.Files
-import java.nio.file.Paths
+import java.nio.file.Path
 
 class IdServiceTest extends Specification {
 
-    @Subject
-    IdService idService
+    private Path nextIdDbPath = File.createTempFile('nextId', '.txt').toPath()
 
-    def setup() {
-        def tempFilePath = Paths.get("temp-id-service-file.txt")
-        if (!Files.exists(tempFilePath)) {
-            Files.createFile(tempFilePath)
-        }
-        idService = new IdService(new FilesService(), tempFilePath)
+    def "next id starts from 1 if file was empty"() {
+        given:
+        IdService idService = new IdService(nextIdDbPath, new FilesService())
+
+        expect:
+        ['1'] == Files.readAllLines(nextIdDbPath)
+
+        and:
+        1 == idService.getNextIdAndIncrement()
+        ['2'] == Files.readAllLines(nextIdDbPath)
+
+        and:
+        2 == idService.getNextIdAndIncrement()
+        ['3'] == Files.readAllLines(nextIdDbPath)
+
+        and:
+        3 == idService.getNextIdAndIncrement()
+        ['4'] == Files.readAllLines(nextIdDbPath)
     }
 
-    def cleanup() {
-        def tempFilePath = Paths.get("temp-id-service-file.txt")
-        Files.deleteIfExists(tempFilePath)
-    }
+    def "next id starts from last number if file was not empty"() {
+        given:
+        Files.writeString(nextIdDbPath, '17')
+        IdService idService = new IdService(nextIdDbPath, new FilesService())
 
-    def "should return incremented id"() {
-        when:
-        def id = idService.getNextIdAndIncrement()
+        expect:
+        ['17'] == Files.readAllLines(nextIdDbPath)
 
-        then:
-        id == 1
-    }
+        and:
+        17 == idService.getNextIdAndIncrement()
+        ['18'] == Files.readAllLines(nextIdDbPath)
 
-    def "should return consecutive incremented ids"() {
-        when:
-        def firstId = idService.getNextIdAndIncrement()
-        def secondId = idService.getNextIdAndIncrement()
+        and:
+        18 == idService.getNextIdAndIncrement()
+        ['19'] == Files.readAllLines(nextIdDbPath)
 
-        then:
-        firstId == 1
-        secondId == 2
+        and:
+        19 == idService.getNextIdAndIncrement()
+        ['20'] == Files.readAllLines(nextIdDbPath)
     }
 }

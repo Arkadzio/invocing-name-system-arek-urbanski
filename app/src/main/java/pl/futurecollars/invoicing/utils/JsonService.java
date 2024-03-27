@@ -10,8 +10,8 @@ public class JsonService {
   private final ObjectMapper mapper;
 
   public JsonService(ObjectMapper objectMapper) {
-    mapper = objectMapper;
-    mapper.registerModule(new JavaTimeModule());
+    mapper = new ObjectMapper();
+    mapper.findAndRegisterModules();
     mapper.enable(SerializationFeature.INDENT_OUTPUT);
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
   }

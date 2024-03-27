@@ -5,24 +5,19 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
 import pl.futurecollars.invoicing.db.Database;
 import pl.futurecollars.invoicing.model.Invoice;
 import pl.futurecollars.invoicing.utils.FilesService;
 import pl.futurecollars.invoicing.utils.JsonService;
 
+@AllArgsConstructor
 public class FileBasedDatabase implements Database {
 
   private final FilesService filesService;
   private final JsonService jsonService;
   private final IdService idService;
   private final Path databasePath;
-
-  public FileBasedDatabase(FilesService filesService, JsonService jsonService, IdService idService, Path databasePath) {
-    this.filesService = filesService;
-    this.jsonService = jsonService;
-    this.idService = idService;
-    this.databasePath = databasePath;
-  }
 
   @Override
   public int save(Invoice invoice) {
@@ -56,7 +51,7 @@ public class FileBasedDatabase implements Database {
           .map(line -> jsonService.toObject(line, Invoice.class))
           .collect(Collectors.toList());
     } catch (IOException ex) {
-      throw new RuntimeException("Failed to read invoices from file", ex);
+      throw new RuntimeException(ex);
     }
   }
 
