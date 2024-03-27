@@ -1,5 +1,6 @@
 package pl.futurecollars.invoicing.utils
 
+import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -31,12 +32,12 @@ class JsonServiceTest extends Specification {
                 .enable(SerializationFeature.INDENT_OUTPUT)
                 .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         def jsonService = new JsonService(mapper)
-        def json = '{"name":"John","age":30}'
+        def json = '{"name":"Arek","age":44}'
 
         when:
         def result = jsonService.toObject(json, Map)
 
         then:
-        result == [name: "John", age: 30]
+        result == [name: "Arek", age: 44]
     }
 }
