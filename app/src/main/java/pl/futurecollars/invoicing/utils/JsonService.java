@@ -11,7 +11,6 @@ public class JsonService {
   {
     mapper = new ObjectMapper();
     mapper.findAndRegisterModules();
-    mapper.enable(SerializationFeature.INDENT_OUTPUT);
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
   }
 
