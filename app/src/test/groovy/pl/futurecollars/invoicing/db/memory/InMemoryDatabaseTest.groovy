@@ -9,7 +9,7 @@ class InMemoryDatabaseTest extends AbstractDatabaseTest {
 
     @Override
     Database getDatabaseInstance(){
-        return new InMemoryDatabaseTest();
+        return new InMemoryDatabase();
     }
 
 }
