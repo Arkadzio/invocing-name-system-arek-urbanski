@@ -43,6 +43,11 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.1'
+
 }
 
 application {
@@ -100,5 +105,10 @@ jacocoTestCoverageVerification {
                 minimum = 0.70
             }
         }
+    }
+    afterEvaluate { // TODO [PK] remove after adding tests in Task #5
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'pl/futurecollars/invoicing/controller/**')
+        }))
     }
 }

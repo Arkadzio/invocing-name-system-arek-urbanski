@@ -1,10 +1,10 @@
 package pl.futurecollars.invoicing.service
 
 import pl.futurecollars.invoicing.db.Database
-import pl.futurecollars.invoicing.model.Invoice
 import spock.lang.Specification
+import static pl.futurecollars.invoicing.helpers.TestHelpers.invoice
 
-class InvoiceServiceTest extends Specification {
+class InvoiceServiceUnitTest extends Specification {
 
     private InvoiceService service
     private Database database
@@ -16,24 +16,18 @@ class InvoiceServiceTest extends Specification {
 
     def "calling save() should delegate to database save() method"() {
         given:
-        Database database = Mock(Database)
-        InvoiceService service = new InvoiceService(database)
-        Invoice invoice = new Invoice()
-
+        def invoice = invoice(1)
         when:
         service.save(invoice)
-
         then:
-        1 * database.save(invoice) >> 1
+        1 * database.save(invoice)
     }
 
     def "calling delete() should delegate to database delete() method"() {
         given:
         def invoiceId = 123
-
         when:
         service.delete(invoiceId)
-
         then:
         1 * database.delete(invoiceId)
     }
@@ -41,10 +35,8 @@ class InvoiceServiceTest extends Specification {
     def "calling getById() should delegate to database getById() method"() {
         given:
         def invoiceId = 321
-
         when:
         service.getById(invoiceId)
-
         then:
         1 * database.getById(invoiceId)
     }
@@ -52,22 +44,16 @@ class InvoiceServiceTest extends Specification {
     def "calling getAll() should delegate to database getAll() method"() {
         when:
         service.getAll()
-
         then:
         1 * database.getAll()
     }
 
     def "calling update() should delegate to database update() method"() {
         given:
-        Database database = Mock(Database)
-        InvoiceService service = new InvoiceService(database)
-        Invoice updatedInvoice = new Invoice()
-        updatedInvoice.id = 1
-
+        def invoice = invoice(1)
         when:
-        service.update(1, updatedInvoice)
-        
+        service.update(invoice.getId(), invoice)
         then:
-        1 * database.update(1, updatedInvoice)
+        1 * database.update(invoice.getId(), invoice)
     }
 }
