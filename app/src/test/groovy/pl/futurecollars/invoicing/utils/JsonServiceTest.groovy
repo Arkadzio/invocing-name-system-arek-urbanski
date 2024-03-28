@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import pl.futurecollars.invoicing.helpers.TestHelpers
+import pl.futurecollars.invoicing.model.Invoice
 import spock.lang.Specification
 
 
@@ -11,33 +13,17 @@ class JsonServiceTest extends Specification {
 
     def "should convert object to JSON"() {
         given:
-        def mapper = new ObjectMapper().registerModule(new JavaTimeModule())
-                .enable(SerializationFeature.INDENT_OUTPUT)
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        def jsonService = new JsonService(mapper)
-        def testObject = [name: "Arek", age: 44]
+        def jsonService = new JsonService()
+        def invoice = TestHelpers.invoice(1)
 
         when:
-        def result = jsonService.toJson(testObject)
+        def invoiceAsString = jsonService.toJson(invoice)
+
+        and:
+        def invoiceFromJson = jsonService.toObject(invoiceAsString, Invoice)
 
         then:
-        def expectedJson = mapper.writeValueAsString(testObject)
-        def actualJson = mapper.writeValueAsString(jsonService.toObject(result, Map))
-        expectedJson == actualJson
+        invoice == invoiceFromJson
     }
 
-    def "should convert JSON to object"() {
-        given:
-        def mapper = new ObjectMapper().registerModule(new JavaTimeModule())
-                .enable(SerializationFeature.INDENT_OUTPUT)
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        def jsonService = new JsonService(mapper)
-        def json = '{"name":"Arek","age":44}'
-
-        when:
-        def result = jsonService.toObject(json, Map)
-
-        then:
-        result == [name: "Arek", age: 44]
-    }
 }

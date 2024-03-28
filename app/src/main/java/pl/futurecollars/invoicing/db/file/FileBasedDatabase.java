@@ -14,10 +14,10 @@ import pl.futurecollars.invoicing.utils.JsonService;
 @AllArgsConstructor
 public class FileBasedDatabase implements Database {
 
+  private final Path databasePath;
+  private final IdService idService;
   private final FilesService filesService;
   private final JsonService jsonService;
-  private final IdService idService;
-  private final Path databasePath;
 
   @Override
   public int save(Invoice invoice) {

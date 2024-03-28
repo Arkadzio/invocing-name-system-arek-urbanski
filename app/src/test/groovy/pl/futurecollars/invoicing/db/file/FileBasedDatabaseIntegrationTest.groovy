@@ -21,7 +21,7 @@ class FileBasedDatabaseIntegrationTest extends AbstractDatabaseTest {
         def idService = new IdService(idPath, filesService)
 
         databasePath = File.createTempFile('invoices', '.txt').toPath()
-        return new FileBasedDatabase(filesService, new JsonService(), idService, databasePath)
+        return new FileBasedDatabase(databasePath, idService, filesService, new JsonService())
     }
 
     def "file based database writes invoices to correct file"() {

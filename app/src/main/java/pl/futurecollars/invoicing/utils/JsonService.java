@@ -8,7 +8,7 @@ public class JsonService {
 
   private final ObjectMapper mapper;
 
-  public JsonService(ObjectMapper objectMapper) {
+  {
     mapper = new ObjectMapper();
     mapper.findAndRegisterModules();
     mapper.enable(SerializationFeature.INDENT_OUTPUT);
