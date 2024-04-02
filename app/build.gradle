@@ -117,4 +117,7 @@ jacocoTestCoverageVerification {
             fileTree(dir: it, exclude: 'pl/futurecollars/invoicing/controller/**')
         }))
     }
+    startScripts {
+        dependsOn bootJar
+    }
 }
