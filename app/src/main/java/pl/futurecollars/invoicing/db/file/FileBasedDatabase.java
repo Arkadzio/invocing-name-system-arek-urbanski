@@ -56,22 +56,19 @@ public class FileBasedDatabase implements Database {
   }
 
   @Override
-  public void update(int id, Invoice updatedInvoice) {
+  public Optional<Invoice> update(int id, Invoice updatedInvoice) {
     try {
       List<String> allInvoices = filesService.readAllLines(databasePath);
-      var listWithoutInvoiceWithGivenId = allInvoices
+      var invoicesWithoutInvoiceWithGivenId = allInvoices
           .stream()
           .filter(line -> !containsId(line, id))
           .collect(Collectors.toList());
 
-      if (allInvoices.size() == listWithoutInvoiceWithGivenId.size()) {
-        throw new IllegalArgumentException("Id " + id + " does not exist");
-      }
-
       updatedInvoice.setId(id);
-      listWithoutInvoiceWithGivenId.add(jsonService.toJson(updatedInvoice));
-
-      filesService.writeAllLinesToFile(databasePath, listWithoutInvoiceWithGivenId);
+      invoicesWithoutInvoiceWithGivenId.add(jsonService.toJson(updatedInvoice));
+      filesService.writeAllLinesToFile(databasePath, invoicesWithoutInvoiceWithGivenId);
+      allInvoices.removeAll(invoicesWithoutInvoiceWithGivenId);
+      return allInvoices.isEmpty() ? Optional.empty() : Optional.of(jsonService.toObject(allInvoices.get(0), Invoice.class));
 
     } catch (IOException ex) {
       throw new RuntimeException(ex);
@@ -79,14 +76,17 @@ public class FileBasedDatabase implements Database {
   }
 
   @Override
-  public void delete(int id) {
+  public Optional<Invoice> delete(int id) {
     try {
-      var updatedList = filesService.readAllLines(databasePath)
+      var allInvoices = filesService.readAllLines(databasePath);
+      var invoicesExceptDeleted = allInvoices
           .stream()
           .filter(line -> !containsId(line, id))
           .collect(Collectors.toList());
 
-      filesService.writeAllLinesToFile(databasePath, updatedList);
+      filesService.writeAllLinesToFile(databasePath, invoicesExceptDeleted);
+      allInvoices.removeAll(invoicesExceptDeleted);
+      return allInvoices.isEmpty() ? Optional.empty() : Optional.of(jsonService.toObject(allInvoices.get(0), Invoice.class));
 
     } catch (IOException ex) {
       throw new RuntimeException("Failed to delete invoice with id: " + id, ex);
