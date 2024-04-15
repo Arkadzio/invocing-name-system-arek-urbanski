@@ -1,0 +1,15 @@
+server:
+  port: 9999
+
+invoicing-system:
+  database: file
+  database.directory: db
+  database.invoices.file: invoices.txt
+  database.id.file: id.txt
+
+logging:
+  level:
+    pl:
+      futurecollars:
+        invoicing: TRACE
+        invoicing.db: DEBUG
