@@ -42,7 +42,6 @@ public class DatabaseConfiguration {
     log.error("Używam file database - error");
     return new FileBasedDatabase(databaseFilePath, idService, filesService, jsonService);
   }
-
   @ConditionalOnProperty(name = "invoicing-system.database", havingValue = "memory")
   @Bean
   public Database inMemoryDatabase() {
