@@ -12,7 +12,3 @@ plugins {
 }
 
 rootProject.name = 'invoicing-name-system-arek-urbanski'
-include('app')
-include 'resource'
-include 'resources'
-
