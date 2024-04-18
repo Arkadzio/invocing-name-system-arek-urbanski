@@ -1,7 +1,6 @@
 package pl.futurecollars.invoicing.controller;
 
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.futurecollars.invoicing.model.Invoice;
 import pl.futurecollars.invoicing.service.InvoiceService;
 
-@Slf4j
 @RestController
 @RequestMapping("invoices")
 public class InvoiceController {
@@ -53,7 +51,6 @@ public class InvoiceController {
 
   @PutMapping("/{id}")
   public ResponseEntity<?> update(@PathVariable int id, @RequestBody Invoice invoice) {
-    log.info("Używam putMapping update - info");
     return invoiceService.update(id, invoice)
         .map(name -> ResponseEntity.noContent().build())
         .orElse(ResponseEntity.notFound().build());
