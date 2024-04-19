@@ -34,7 +34,12 @@ public class DatabaseConfiguration {
                                     JsonService jsonService,
                                     @Value("${invoicing-system.database.directory}") String databaseDirectory,
                                     @Value("${invoicing-system.database.invoices.file}") String invoicesFile) throws IOException {
-    Path databaseFilePath = Files.createTempFile(databaseDirectory, invoicesFile); log.trace("Używam file database - trace"); log.debug("Używam file database - debug"); log.info("Używam file database - info"); log.warn("Używam file database - warning"); log.error("Używam file database - error");
+    Path databaseFilePath = Files.createTempFile(databaseDirectory, invoicesFile);
+    //log.trace("Używam file database - trace");
+    log.debug("Używam file database - debug");
+//    log.info("Używam file database - info");
+//    log.warn("Używam file database - warning");
+//    log.error("Używam file database - error");
     return new FileBasedDatabase(databaseFilePath, idService, filesService, jsonService);
   }
 

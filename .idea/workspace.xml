@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Repairing failures to achieve master in status after lesson 7 _v2">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 8">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/InvoiceEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/InvoiceEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713468971054</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Lesson 8">
+      <created>1713531173734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713531173734</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,6 +348,7 @@
     <MESSAGE value="Revert &quot;Lesson 7 (#8)&quot;&#10;&#10;This reverts commit 3f367dc0" />
     <MESSAGE value="Repairing failures to achieve master in status after lesson 7" />
     <MESSAGE value="Repairing failures to achieve master in status after lesson 7 _v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repairing failures to achieve master in status after lesson 7 _v2" />
+    <MESSAGE value="Lesson 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson 8" />
   </component>
 </project>

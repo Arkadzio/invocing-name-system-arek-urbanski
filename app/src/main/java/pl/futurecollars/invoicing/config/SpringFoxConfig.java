@@ -25,10 +25,11 @@ public class SpringFoxConfig {
             new Tag("invoice-controller", "Controller used to list / add / update / delete invoices")
         )
         .apiInfo(apiInfo());
+
   }
 
-  private ApiInfo apiInfo(){
-    return  new ApiInfoBuilder()
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder()
         .description("Application to manage set of invoices")
         .license("No license available - private!")
         .title("Private invoicing")
@@ -37,7 +38,7 @@ public class SpringFoxConfig {
                 "Arek Urbański",
                 "wp.pl",
                 "arson.arkadzio@gmail.com"
-                )
+            )
         )
         .build();
   }
