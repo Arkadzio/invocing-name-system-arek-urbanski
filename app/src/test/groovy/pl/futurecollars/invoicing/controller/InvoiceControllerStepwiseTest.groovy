@@ -17,10 +17,6 @@ import spock.lang.Stepwise
 
 import java.time.LocalDate
 
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
-//import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
 @AutoConfigureMockMvc
 @SpringBootTest
 @Stepwise

@@ -12,8 +12,8 @@ class InvoiceTest extends Specification {
         def buyer = new Company(name: "Buyer Company", taxIdentificationNumber: "1234567890")
         def seller = new Company(name: "Seller Company", taxIdentificationNumber: "0987654321")
         def entries = [
-                new InvoiceEntry(description: "Item 1", price: 20, vatValue: 4.0, vatRate: Vat.VAT_8),
-                new InvoiceEntry(description: "Item 2", price: 10, vatValue:  2.0, vatRate: Vat.VAT_8)
+                new InvoiceEntry(description: "Item 1", netPrice: 20, vatValue: 4.0, vatRate: Vat.VAT_8),
+                new InvoiceEntry(description: "Item 2", netPrice: 10, vatValue:  2.0, vatRate: Vat.VAT_8)
         ]
 
         when:
