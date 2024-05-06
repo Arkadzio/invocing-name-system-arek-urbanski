@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 8">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/InvoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" afterDir="false" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 10">
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/application-sql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V1__create_invoices_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V2__rename_issue_date_to_date.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V3__create_company_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V4__add_buyer_and_seller_invoice.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V5__add_car_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V6__create_vat_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V7__create_invoice_entry.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/db/migration/V8__connect_invoice_with_invoice_entry.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +51,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
               </path>
               <path>
@@ -60,6 +58,20 @@
                 <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="invoicing-name-system-arek-urbanski" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -79,8 +91,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,8 +105,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -104,22 +126,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "Spock",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock": "spock.lang.Specification",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3659379"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;Spock&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock&quot;: &quot;spock.lang.Specification&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/areku/Java_projects/invoicing-name-system-arek-urbanski/app/src/main/resources/db/migration&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3659379&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\main\resources\db\migration" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="spock.lang.Specification" />
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\main\resources\db\migration" />
+      <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\main\resources" />
+      <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\main\java\pl\futurecollars\invoicing\utils" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="pl.futurecollars.invoicing.controller" />
@@ -129,7 +160,7 @@
       <recent name="pl.futurecollars.invoicing" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.invoicing-name-system-arek-urbanski [test]">
+  <component name="RunManager" selected="Gradle.invoicing-name-system-arek-urbanski:app [test]">
     <configuration name="InvoiceApplication-dev" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -150,6 +181,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvoiceApplication-sql" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="pl.futurecollars.invoicing.InvoiceApplication" />
+      <module name="Java_projects.invoicing-name-system-arek-urbanski.app.main" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=sql" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InvoiceApplication" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -160,12 +201,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="invoicing-name-system-arek-urbanski [testWithFileDatabase]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="testWithFileDatabase" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="invoicing-name-system-arek-urbanski:app [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -181,18 +243,18 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski [jacocoTestCoverageVerification]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="invoicing-name-system-arek-urbanski:app [testWithMemoryDatabase]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="jacocoTestCoverageVerification" />
+            <option value="testWithMemoryDatabase" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -202,39 +264,18 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="invoicing-name-system-arek-urbanski:app [testWithSQLDatabase]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="jacocoTestReport" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
+            <option value="testWithSQLDatabase" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -267,21 +308,22 @@
     </configuration>
     <list>
       <item itemvalue="Application.InvoiceApplication" />
+      <item itemvalue="Application.InvoiceApplication-sql" />
       <item itemvalue="Application.InvoiceApplication-dev" />
       <item itemvalue="Application.InvoiceApplication-prod" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [check]" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [jacocoTestCoverageVerification]" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [jacocoTestReport]" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [test]" />
+      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [testWithFileDatabase]" />
+      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
+      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [testWithMemoryDatabase]" />
+      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [testWithSQLDatabase]" />
       <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [test]" />
         <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [jacocoTestReport]" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [jacocoTestCoverageVerification]" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [check]" />
+        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [testWithSQLDatabase]" />
+        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
+        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [testWithMemoryDatabase]" />
+        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski [testWithFileDatabase]" />
       </list>
     </recent_temporary>
   </component>
@@ -329,7 +371,28 @@
       <option name="project" value="LOCAL" />
       <updated>1713531173734</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Lesson 9 - only application without working tests">
+      <created>1713891857477</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713891857477</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Lesson 9 - working tests added">
+      <created>1713894205791</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713894205791</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Lesson 10">
+      <created>1714084287458</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714084287458</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,6 +412,9 @@
     <MESSAGE value="Repairing failures to achieve master in status after lesson 7" />
     <MESSAGE value="Repairing failures to achieve master in status after lesson 7 _v2" />
     <MESSAGE value="Lesson 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lesson 8" />
+    <MESSAGE value="Lesson 9 - only application without working tests" />
+    <MESSAGE value="Lesson 9 - working tests added" />
+    <MESSAGE value="Lesson 10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson 10" />
   </component>
 </project>

@@ -13,3 +13,9 @@ logging:
       futurecollars:
         invoicing: INFO
         invoicing.db: DEBUG
+
+spring:
+  profiles:
+    active: memory
+  flyway:
+    enabled: false
