@@ -23,10 +23,10 @@ import pl.futurecollars.invoicing.model.Vat;
 public class SqlDatabase implements Database {
 
   public static final String SELECT_QUERY = "SELECT i.id, i.date, i.number, "
-      +
-      "c1.id as buyer_id, c1.tax_identification_number as buyer_tax_identification_number, c1.address as buyer_address, c1.name as buyer_name, c1.pension_insurance as buyer_pension_insurance, c1.health_insurance as buyer_health_insurance, "
-      +
-      "c2.id as seller_id, c2.tax_identification_number as seller_tax_identification_number, c2.address as seller_address, c2.name as seller_name, c2.pension_insurance as seller_pension_insurance, c2.health_insurance as seller_health_insurance "
+      + "c1.id as buyer_id, c1.tax_identification_number as buyer_tax_identification_number, c1.address as buyer_address, c1.name as buyer_name, "
+      + "c1.pension_insurance as buyer_pension_insurance, c1.health_insurance as buyer_health_insurance, "
+      + "c2.id as seller_id, c2.tax_identification_number as seller_tax_identification_number, c2.address as seller_address, c2.name as seller_name, "
+      + "c2.pension_insurance as seller_pension_insurance, c2.health_insurance as seller_health_insurance "
       + "FROM invoices i "
       + "inner join company c1 on i.buyer = c1.id "
       + "inner join company c2 on i.seller = c2.id";
