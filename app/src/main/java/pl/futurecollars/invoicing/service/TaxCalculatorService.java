@@ -49,18 +49,22 @@ public class TaxCalculatorService {
         .subtract(getVatValueTakingIntoConsiderationPersonalCarUsage(invoiceEntry));
   }
 
+  public BigDecimal getEarnings(String taxIdentificationNumber) {
+    return income(taxIdentificationNumber).subtract(costs(taxIdentificationNumber));
+  }
+
   public BigDecimal getVatToReturn(String taxIdentificationNumber) {
     return collectedVat(taxIdentificationNumber).subtract(paidVat(taxIdentificationNumber));
   }
 
   public TaxCalculatorResult calculateTaxes(Company company) {
     String taxIdentificationNumber = company.getTaxIdentificationNumber();
-    BigDecimal incomeMinusCosts = income(taxIdentificationNumber).subtract(costs(taxIdentificationNumber));
+    BigDecimal incomeMinusCosts = getEarnings(taxIdentificationNumber);
     BigDecimal incomeMinusCostsMinusPensionInsurance = incomeMinusCosts.subtract(company.getPensionInsurance());
     BigDecimal incomeMinusCostsMinusPensionInsuranceRounded = incomeMinusCostsMinusPensionInsurance.setScale(0, RoundingMode.HALF_DOWN);
     BigDecimal incomeTax = incomeMinusCostsMinusPensionInsuranceRounded.multiply(BigDecimal.valueOf(19, 2));
     BigDecimal healthInsuranceToSubtract =
-        company.getHealthInsurance().multiply(BigDecimal.valueOf(775).divide(BigDecimal.valueOf(900), RoundingMode.HALF_UP));
+        company.getHealthInsurance().multiply(BigDecimal.valueOf(775)).divide(BigDecimal.valueOf(900), RoundingMode.HALF_UP);
     BigDecimal incomeTaxMinusHealthInsurance = incomeTax.subtract(healthInsuranceToSubtract);
     return TaxCalculatorResult.builder()
         .income(income(taxIdentificationNumber))

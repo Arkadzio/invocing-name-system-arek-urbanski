@@ -28,9 +28,9 @@ class InvoiceControllerStepwiseTest extends Specification {
     @Autowired
     private JsonService jsonService
 
-    private Invoice originalInvoice = TestHelpers.invoice(1)
+    private final Invoice originalInvoice = TestHelpers.invoice(1)
 
-    private LocalDate updatedDate = LocalDate.of(2024, 04, 11)
+    private final LocalDate updatedDate = LocalDate.of(2024, 04, 11)
 
     @Shared
     private int invoiceId
@@ -49,8 +49,7 @@ class InvoiceControllerStepwiseTest extends Specification {
 
     def "add single invoice"() {
         given:
-        def invoice = originalInvoice
-        def invoiceAsJson = jsonService.toJson(invoice)
+        def invoiceAsJson = jsonService.toJson(originalInvoice)
 
         when:
         invoiceId = Integer.valueOf(mockMvc.perform(

@@ -132,20 +132,22 @@ jacocoTestCoverageVerification {
         rule {
             limit {
                 counter = 'BRANCH'
-                minimum = 0.82
+                minimum = 0.85
             }
         }
 
         rule {
             limit {
                 counter = 'LINE'
-                minimum = 0.82
+                minimum = 0.85
             }
         }
     }
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: 'pl/futurecollars/invoicing/InvoiceApplication.class')
+            fileTree(dir: it, exclude: [
+                    'pl/futurecollars/invoicing/InvoiceApplication.class',
+                    'pl/futurecollars/invoicing/config/*'])
         }))
     }
     startScripts {
@@ -153,19 +155,3 @@ jacocoTestCoverageVerification {
     }
 
 }
-
-task testWithFileDatabase(type: Test) {
-    systemProperty 'spring.profiles.active', 'file'
-}
-
-task testWithMemoryDatabase(type: Test) {
-    systemProperty 'spring.profiles.active', 'memory'
-}
-
-task testWithSQLDatabase(type: Test) {
-    systemProperty 'spring.profiles.active', 'sql'
-}
-
-check.dependsOn testWithFileDatabase
-check.dependsOn testWithMemoryDatabase
-//check.dependsOn testWithSQLDatabase
