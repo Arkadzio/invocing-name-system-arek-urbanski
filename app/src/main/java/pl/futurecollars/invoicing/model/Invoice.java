@@ -18,17 +18,16 @@ public class Invoice {
   private int id;
   @ApiModelProperty(value = "Data invoice was created", required = true)
   private LocalDate date;
+
+  @ApiModelProperty(value = "Invoice number (assigned by user)", required = true, example = "2020/05/12/007")
+  private String number;
+
   @ApiModelProperty(value = "Company which bought product/service", required = true)
   private Company buyer;
+
   @ApiModelProperty(value = "Company which is selling the product/service", required = true)
   private Company seller;
+
   @ApiModelProperty(value = "List of products/services", required = true)
   private List<InvoiceEntry> entries;
-
-  public Invoice(LocalDate date, Company buyer, Company seller, List<InvoiceEntry> entries) {
-    this.date = date;
-    this.buyer = buyer;
-    this.seller = seller;
-    this.entries = entries;
-  }
 }

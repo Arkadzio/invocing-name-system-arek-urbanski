@@ -32,11 +32,11 @@ class AbstractControllerTest extends Specification {
         getAllInvoices().each { invoice -> deleteInvoice(invoice.id) }
     }
 
-    int addInvoiceAndReturnId(String invoiceAsJson) {
+    int addInvoiceAndReturnId(Invoice invoice) {
         Integer.valueOf(
                 mockMvc.perform(
                         post(INVOICE_ENDPOINT)
-                                .content(invoiceAsJson)
+                                .content(jsonService.toJson(invoice))
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
                         .andExpect(status().isOk())
@@ -59,7 +59,7 @@ class AbstractControllerTest extends Specification {
     List<Invoice> addUniqueInvoices(int count) {
         (1..count).collect { id ->
             def invoice = invoice(id)
-            invoice.id = addInvoiceAndReturnId(jsonService.toJson(invoice))
+            invoice.id = addInvoiceAndReturnId(invoice)
             return invoice
         }
     }

@@ -8,7 +8,9 @@ class InvoiceTest extends Specification {
 
     def "should create invoice with provided data"() {
         given:
+        def id = 1
         def date = LocalDate.of(2024, 3, 25)
+        def number = "3"
         def buyer = new Company(name: "Buyer Company", taxIdentificationNumber: "1234567890")
         def seller = new Company(name: "Seller Company", taxIdentificationNumber: "0987654321")
         def entries = [
@@ -17,7 +19,7 @@ class InvoiceTest extends Specification {
         ]
 
         when:
-        def invoice = new Invoice(date, buyer, seller, entries)
+        def invoice = new Invoice(id, date, number, buyer, seller, entries)
 
         then:
         invoice.date == date
