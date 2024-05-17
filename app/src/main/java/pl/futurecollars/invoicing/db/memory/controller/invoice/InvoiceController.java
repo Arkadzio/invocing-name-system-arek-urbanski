@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.controller.invoice;
+package pl.futurecollars.invoicing.db.memory.controller.invoice;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class InvoiceController implements InvoiceApi {
   }
 
   @Override
-  public int add(@RequestBody Invoice invoice) {
+  public long add(@RequestBody Invoice invoice) {
     return invoiceService.save(invoice);
   }
 

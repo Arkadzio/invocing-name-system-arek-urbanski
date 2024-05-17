@@ -1,11 +1,14 @@
-package pl.futurecollars.invoicing.controller
+package pl.futurecollars.invoicing.controller.invoice
 
 import org.springframework.http.MediaType
+import pl.futurecollars.invoicing.controller.AbstractControllerTest
+import spock.lang.Unroll
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import static pl.futurecollars.invoicing.helpers.TestHelpers.invoice
 
+@Unroll
 class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
     def "empty array is returned when no invoices were added"() {
@@ -14,8 +17,8 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
     }
 
     def "add invoice returns sequential id"() {
-        given:
-        def invoiceAsJson = invoiceAsJson(1)
+//        given:
+//        def invoiceAsJson = invoiceAsJson(1)
 
         expect:
         def firstId = addInvoiceAndReturnId(invoice(1))
@@ -56,7 +59,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                get("$INVOICE_ENDPOINT/$id")
+                get("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
         )
                 .andExpect(status().isNotFound())
 
@@ -71,7 +74,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                delete("$INVOICE_ENDPOINT/$id")
+                delete("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
         )
                 .andExpect(status().isNotFound())
 
@@ -86,7 +89,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                put("$INVOICE_ENDPOINT/$id")
+                put("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
                         .content(invoiceAsJson(1))
                         .contentType(MediaType.APPLICATION_JSON)
         )
@@ -105,13 +108,15 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                put("$INVOICE_ENDPOINT/$id")
+                put("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
                         .content(jsonService.toJson(updatedInvoice))
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isNoContent())
 
-        getInvoiceById(id) == updatedInvoice
+        def invoiceFromDbAfterUpdate = getInvoiceById(id).toString()
+        def expectedInvoice = updatedInvoice.toString()
+        invoiceFromDbAfterUpdate == expectedInvoice
     }
 
     def "invoice can be deleted"() {

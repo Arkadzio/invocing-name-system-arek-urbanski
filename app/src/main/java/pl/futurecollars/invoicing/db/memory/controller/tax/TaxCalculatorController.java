@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.controller.tax;
+package pl.futurecollars.invoicing.db.memory.controller.tax;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;

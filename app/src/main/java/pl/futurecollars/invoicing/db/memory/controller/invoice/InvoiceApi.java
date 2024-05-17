@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.controller.invoice;
+package pl.futurecollars.invoicing.db.memory.controller.invoice;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +23,7 @@ public interface InvoiceApi {
 
   @ApiOperation(value = "Add new invoice to system")
   @PostMapping
-  int add(@RequestBody Invoice invoice);
+  long add(@RequestBody Invoice invoice);
 
   @ApiOperation(value = "Get invoice by id")
   @GetMapping("/{id}")

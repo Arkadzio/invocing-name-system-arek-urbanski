@@ -1,5 +1,6 @@
-package pl.futurecollars.invoicing.controller
+package pl.futurecollars.invoicing.controller.tax
 
+import pl.futurecollars.invoicing.controller.AbstractControllerTest
 import pl.futurecollars.invoicing.model.Car
 import pl.futurecollars.invoicing.model.Company
 import pl.futurecollars.invoicing.model.Invoice
@@ -110,9 +111,10 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
                                 .vatValue(BigDecimal.valueOf(23.45))
                                 .vatRate(Vat.VAT_23)
                                 .netPrice(BigDecimal.valueOf(100))
+                                .quantity(1.0)
                                 .expenseRelatedToCar(
                                         Car.builder()
-                                                .personalUse(true)
+                                                .personalUser(true)
                                                 .registrationNumber("KWI 555234")
                                                 .build()
                                 )
@@ -168,6 +170,7 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
                         InvoiceEntry.builder()
                                 .netPrice(76011.62)
                                 .vatValue(0.0)
+                                .quantity(1.0)
                                 .vatRate(Vat.VAT_0)
                                 .build()
                 ))
@@ -181,6 +184,7 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
                 .entries(List.of(
                         InvoiceEntry.builder()
                                 .netPrice(11329.47)
+                                .quantity(1.0)
                                 .vatValue(0.0)
                                 .vatRate(Vat.VAT_ZW)
                                 .build()
