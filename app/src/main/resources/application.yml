@@ -3,6 +3,9 @@ server:
 
 logging:
   level:
+    org:
+      springframework:
+        boot: INFO
     pl:
       futurecollars:
         invoicing: INFO
