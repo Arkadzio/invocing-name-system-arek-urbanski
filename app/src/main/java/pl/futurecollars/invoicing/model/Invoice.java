@@ -5,7 +5,6 @@ import static javax.persistence.CascadeType.ALL;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
