@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 13 - update after checkstyle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/InvoiceApplicationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/InvoiceApplicationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +165,7 @@
       <recent name="pl.futurecollars.invoicing" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.invoicing-name-system-arek-urbanski:app [test]">
+  <component name="RunManager" selected="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added">
     <configuration name="InvoiceApplication-file" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -281,7 +283,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="InvoiceControllerIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="InvoiceControllerIntegrationTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -294,7 +296,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.controller.InvoiceControllerIntegrationTest&quot;" />
+            <option value="&quot;pl.futurecollars.invoicing.controller.invoice.InvoiceControllerIntegrationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -304,23 +306,25 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski:app [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="check" />
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.controller.invoice.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -355,17 +359,17 @@
       <item itemvalue="Application.InvoiceApplication-memory" />
       <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
       <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
-      <item itemvalue="Gradle.InvoiceControllerIntegrationTest" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
+      <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
+      <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
       <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
+        <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
         <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
         <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
         <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
-        <item itemvalue="Gradle.InvoiceControllerIntegrationTest" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
       </list>
     </recent_temporary>
   </component>
@@ -455,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715945769746</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Lesson 13 - update after checkstyle">
+      <created>1715947005329</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715947005329</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

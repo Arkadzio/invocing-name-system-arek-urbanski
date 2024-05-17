@@ -17,8 +17,6 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
     }
 
     def "add invoice returns sequential id"() {
-//        given:
-//        def invoiceAsJson = invoiceAsJson(1)
 
         expect:
         def firstId = addInvoiceAndReturnId(invoice(1))
