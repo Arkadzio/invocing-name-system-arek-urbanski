@@ -1,0 +1,18 @@
+server:
+  port: 7777
+
+logging:
+  level:
+    org:
+      springframework:
+        boot: INFO
+    pl:
+      futurecollars:
+        invoicing: INFO
+        invoicing.db: DEBUG
+
+spring:
+  profiles:
+    active: jpa-flyway
+  flyway:
+    enabled: false

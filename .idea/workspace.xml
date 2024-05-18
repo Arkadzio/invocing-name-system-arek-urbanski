@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 13 - update with proper .yml files _ v2" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 13 - update with proper .yml files _ v2">
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/application-sql-pg.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-jpa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-jpa.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/application-jpa-flyway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/application-jpa-flyway.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/application-jpa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/application-jpa.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +172,7 @@
       <recent name="pl.futurecollars.invoicing" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added">
+  <component name="RunManager" selected="Gradle.invoicing-name-system-arek-urbanski:app [test]">
     <configuration name="InvoiceApplication-file" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -362,9 +372,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
         <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
         <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
         <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
         <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
       </list>
@@ -477,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715947985161</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Lesson 13 - update with proper .yml files _ v2">
+      <created>1715948507833</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715948507833</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

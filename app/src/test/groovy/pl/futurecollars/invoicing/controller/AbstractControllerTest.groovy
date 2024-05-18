@@ -60,7 +60,7 @@ class AbstractControllerTest extends Specification {
         (1..count).collect { id ->
             def invoice = invoice(id)
             invoice.id = addInvoiceAndReturnId(invoice)
-            return invoice
+            invoice
         }
     }
 
@@ -82,13 +82,6 @@ class AbstractControllerTest extends Specification {
     String invoiceAsJson(long id) {
         jsonService.toJson(invoice(id))
     }
-
-//    TaxCalculatorResult calculateTax(String taxIdentificationNumber) {
-//        def response = mockMvc.perform(get("$TAX_CALCULATOR_ENDPOINT/$taxIdentificationNumber"))
-//                .andExpect(status().isOk())
-//                .andReturn()
-//                .response
-//                .contentAsString
 
     TaxCalculatorResult calculateTax(Company company) {
         def response = mockMvc.perform(

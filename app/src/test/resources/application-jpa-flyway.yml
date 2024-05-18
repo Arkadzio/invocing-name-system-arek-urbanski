@@ -4,7 +4,7 @@ Spring:
       ddl-auto: validate
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgresSQL94Dialect
+        dialect: org.hibernate.dialect.H2Dialect
   datasource:
     url: jdbc:h2:mem:db-jpa-flyway;DB_CLOSE_DELAY=-1
     username: postgres

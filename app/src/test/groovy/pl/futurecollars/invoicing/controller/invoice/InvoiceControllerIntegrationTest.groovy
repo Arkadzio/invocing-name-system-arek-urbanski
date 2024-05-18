@@ -57,7 +57,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                get("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
+                get("$INVOICE_ENDPOINT/$id")
         )
                 .andExpect(status().isNotFound())
 
@@ -72,7 +72,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                delete("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
+                delete("$INVOICE_ENDPOINT/$id")
         )
                 .andExpect(status().isNotFound())
 
@@ -87,7 +87,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                put("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
+                put("$INVOICE_ENDPOINT/$id")
                         .content(invoiceAsJson(1))
                         .contentType(MediaType.APPLICATION_JSON)
         )
@@ -106,7 +106,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
 
         expect:
         mockMvc.perform(
-                put("$AbstractControllerTest.INVOICE_ENDPOINT/$id")
+                put("$INVOICE_ENDPOINT/$id")
                         .content(jsonService.toJson(updatedInvoice))
                         .contentType(MediaType.APPLICATION_JSON)
         )
