@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 12">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/Database.java" afterDir="false" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 13 - update with proper .yml files _ v2">
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/application-sql-pg.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-jpa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-jpa.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/application-jpa-flyway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/application-jpa-flyway.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/application-jpa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/application-jpa.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +141,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit": "groovy.util.GroovyTestCase",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock": "spock.lang.Specification",
-    "last_opened_file_path": "C:/Users/areku/Java_projects/invoicing-name-system-arek-urbanski/app/src/main/resources/db/migration",
+    "last_opened_file_path": "C:/Users/areku/Java_projects/invoicing-name-system-arek-urbanski/app/src/test/resources",
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3659379"
@@ -141,6 +149,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\test\resources" />
       <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\main\resources\db\migration" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -174,6 +183,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InvoiceApplication-jpa-flyway" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="pl.futurecollars.invoicing.InvoiceApplication" />
+      <module name="Java_projects.invoicing-name-system-arek-urbanski.app.main" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=jpa-flyway" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InvoiceApplication-jpa" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="pl.futurecollars.invoicing.InvoiceApplication" />
+      <module name="Java_projects.invoicing-name-system-arek-urbanski.app.main" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=jpa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InvoiceApplication-memory" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -203,7 +232,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|SqlDatabaseIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -220,6 +249,8 @@
             <option value="--tests" />
             <option value="&quot;pl.futurecollars.invoicing.db.memory.InMemoryDatabaseTest&quot;" />
             <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.db.jpa.JpaDatabaseIntegrationTest&quot;" />
+            <option value="--tests" />
             <option value="&quot;pl.futurecollars.invoicing.db.sql.SqlDatabaseIntegrationTest&quot;" />
           </list>
         </option>
@@ -230,7 +261,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileBasedDatabaseIntegrationTest.it's possible to update the invoice, original invoice is returned|InMemoryDatabaseTest.it's possible to update the invoice, original invoice is returned" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -243,9 +274,13 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.file.FileBasedDatabaseIntegrationTest.it's possible to update the invoice, original invoice is returned&quot;" />
+            <option value="&quot;pl.futurecollars.invoicing.db.file.FileBasedDatabaseIntegrationTest&quot;" />
             <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.memory.InMemoryDatabaseTest.it's possible to update the invoice, original invoice is returned&quot;" />
+            <option value="&quot;pl.futurecollars.invoicing.db.memory.InMemoryDatabaseTest&quot;" />
+            <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.db.jpa.JpaDatabaseIntegrationTest&quot;" />
+            <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.db.sql.SqlDatabaseIntegrationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -255,23 +290,48 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="invoicing-name-system-arek-urbanski:app [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="InvoiceControllerIntegrationTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="check" />
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.controller.invoice.InvoiceControllerIntegrationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:test" />
+            <option value="--tests" />
+            <option value="&quot;pl.futurecollars.invoicing.controller.invoice.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -297,35 +357,26 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaxCalculatorControllerIntegrationTest" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="Java_projects.invoicing-name-system-arek-urbanski.app.test~2" />
-      <setting name="path" value="file://$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/TaxCalculatorControllerIntegrationTest.groovy" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.InvoiceApplication" />
+      <item itemvalue="Application.InvoiceApplication-jpa" />
+      <item itemvalue="Application.InvoiceApplication-jpa-flyway" />
       <item itemvalue="Application.InvoiceApplication-sql" />
       <item itemvalue="Application.InvoiceApplication-file" />
       <item itemvalue="Application.InvoiceApplication-memory" />
-      <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest.it's possible to update the invoice, original invoice is returned|InMemoryDatabaseTest.it's possible to update the invoice, original invoice is returned" />
-      <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|SqlDatabaseIntegrationTest" />
-      <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
+      <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
+      <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
+      <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
+      <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
       <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
-      <item itemvalue="Groovy.TaxCalculatorControllerIntegrationTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
-        <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [check]" />
-        <item itemvalue="Groovy.TaxCalculatorControllerIntegrationTest" />
-        <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|SqlDatabaseIntegrationTest" />
-        <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest.it's possible to update the invoice, original invoice is returned|InMemoryDatabaseTest.it's possible to update the invoice, original invoice is returned" />
+        <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
+        <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
+        <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
+        <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -401,7 +452,49 @@
       <option name="project" value="LOCAL" />
       <updated>1715723336620</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Lesson 13">
+      <created>1715945597956</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715945597956</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Lesson 13 - update after checkstyle">
+      <created>1715945769746</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715945769746</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Lesson 13 - update after checkstyle">
+      <created>1715947005329</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715947005329</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Lesson 13 - update with proper .yml files">
+      <created>1715947659040</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715947659040</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Lesson 13 - update with proper .yml files _ v2">
+      <created>1715947985161</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715947985161</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Lesson 13 - update with proper .yml files _ v2">
+      <created>1715948507833</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715948507833</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -425,7 +518,11 @@
     <MESSAGE value="Lesson 9 - working tests added" />
     <MESSAGE value="Lesson 10" />
     <MESSAGE value="Lesson 12" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lesson 12" />
+    <MESSAGE value="Lesson 13" />
+    <MESSAGE value="Lesson 13 - update after checkstyle" />
+    <MESSAGE value="Lesson 13 - update with proper .yml files" />
+    <MESSAGE value="Lesson 13 - update with proper .yml files _ v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson 13 - update with proper .yml files _ v2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/invoicing_name_system_arek_urbanski$InvoiceControllerIntegrationTest_invoice_can_be_modified.ic" NAME="InvoiceControllerIntegrationTest.invoice can be modified Coverage Results" MODIFIED="1715425500165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

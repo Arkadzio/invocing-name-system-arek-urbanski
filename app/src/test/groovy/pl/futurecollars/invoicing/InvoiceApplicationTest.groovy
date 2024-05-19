@@ -11,7 +11,7 @@ class InvoiceApplicationTest extends Specification {
     @Autowired
     private InvoiceService invoiceService;
 
-    def "Main"() {
+    def "Invoice Service is created"() {
         expect:
         invoiceService
     }

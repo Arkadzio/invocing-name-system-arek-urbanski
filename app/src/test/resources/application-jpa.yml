@@ -1,0 +1,15 @@
+Spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+  datasource:
+    url: jdbc:h2:mem:db-jpa;DB_CLOSE_DELAY=-1
+    username: postgres
+    password: 1111
+    driver-class-name: org.h2.Driver
+
+invoicing-system:
+  database: jpa
