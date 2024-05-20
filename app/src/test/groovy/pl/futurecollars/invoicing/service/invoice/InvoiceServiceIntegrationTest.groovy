@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.service
+package pl.futurecollars.invoicing.service.invoice
 
 import java.time.LocalDate
 import pl.futurecollars.invoicing.db.Database
@@ -93,8 +93,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         service.update(213, invoices.get(1)) == Optional.empty()
     }
 
-    def "should save and retrieve invoice from database"()
-    {
+    def "should save and retrieve invoice from database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)
@@ -110,8 +109,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         retrievedInvoice.get().id == savedId
     }
 
-    def "should update invoice in database"()
-    {
+    def "should update invoice in database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)
@@ -129,8 +127,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         retrievedInvoice.get().date == updatedInvoice.date
     }
 
-    def "should delete invoice from database"()
-    {
+    def "should delete invoice from database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)

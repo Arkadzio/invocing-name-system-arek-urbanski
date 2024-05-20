@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.futurecollars.invoicing.model.Company;
-import pl.futurecollars.invoicing.service.TaxCalculatorResult;
+import pl.futurecollars.invoicing.service.tax.TaxCalculatorResult;
 
 @RequestMapping("tax")
 @Api(tags = {"tax-controller"})

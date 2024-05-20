@@ -4,17 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 13 - update with proper .yml files _ v3">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/mongo/MongoBasedDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/mongo/MongoIdProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/application-mongo.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/mongo/MongoDatabaseIntegrationTest.groovy" afterDir="false" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 14">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/file/FileDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/jpa/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/jpa/JpaDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/memory/InMemoryDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/mongo/MongoDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/sql/AbstractSqlDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/sql/CompanySqlDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/sql/SqlDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/WithId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/company/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/company/CompanyControllerIntegrationTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/config/SpringFoxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/invoice/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/invoice/InvoiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/tax/TaxCalculatorApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/tax/TaxCalculatorApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/tax/TaxCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/tax/TaxCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/DatabaseConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/file/FileBasedDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/file/FileBasedDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/jpa/JpaDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/jpa/JpaDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/memory/InMemoryDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/memory/InMemoryDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/mongo/MongoBasedDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/mongo/MongoBasedDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/sql/SqlDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/db/sql/InvoiceSqlDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/model/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/invoice/InvoiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/TaxCalculatorResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/tax/TaxCalculatorResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/TaxCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/service/tax/TaxCalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-file.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-file.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-memory.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-memory.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application-mongo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application-mongo.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/InvoiceApplicationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/InvoiceApplicationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/AbstractControllerTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerStepwiseTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/controller/invoice/InvoiceControllerStepwiseTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/AbstractDatabaseTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/AbstractDatabaseTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/file/FileBasedDatabaseIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/file/FileBasedDatabaseIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/mongo/MongoDatabaseIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/mongo/MongoDatabaseIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/sql/SqlDatabaseIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/db/sql/InvoiceSqlDatabaseIntegrationTest.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/helpers/TestHelpers.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/helpers/TestHelpers.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/InvoiceServiceIntegrationTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/invoice/InvoiceServiceIntegrationTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/InvoiceServiceTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/invoice/InvoiceServiceTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/InvoiceServiceUnitTest.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/groovy/pl/futurecollars/invoicing/service/invoice/InvoiceServiceUnitTest.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +143,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="lesson_14" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -174,7 +210,7 @@
       <recent name="pl.futurecollars.invoicing" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.invoicing-name-system-arek-urbanski:app [test]">
+  <component name="RunManager" selected="Application.InvoiceApplication">
     <configuration name="InvoiceApplication-file" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -234,7 +270,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CompanyControllerIntegrationTest.add company returns sequential id" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -247,13 +283,7 @@
           <list>
             <option value=":app:test" />
             <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.file.FileBasedDatabaseIntegrationTest&quot;" />
-            <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.memory.InMemoryDatabaseTest&quot;" />
-            <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.jpa.JpaDatabaseIntegrationTest&quot;" />
-            <option value="--tests" />
-            <option value="&quot;pl.futurecollars.invoicing.db.sql.SqlDatabaseIntegrationTest&quot;" />
+            <option value="&quot;pl.futurecollars.invoicing.controller.company.CompanyControllerIntegrationTest.add company returns sequential id&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -263,7 +293,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -366,7 +396,7 @@
       <item itemvalue="Application.InvoiceApplication-sql" />
       <item itemvalue="Application.InvoiceApplication-file" />
       <item itemvalue="Application.InvoiceApplication-memory" />
-      <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
+      <item itemvalue="Gradle.CompanyControllerIntegrationTest.add company returns sequential id" />
       <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
       <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
       <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
@@ -375,10 +405,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.invoicing-name-system-arek-urbanski:app [test]" />
+        <item itemvalue="Gradle.CompanyControllerIntegrationTest.add company returns sequential id" />
         <item itemvalue="Gradle.InvoiceControllerIntegrationTest.empty array is returned when no invoices were added" />
         <item itemvalue="Gradle.InvoiceControllerIntegrationTest (1)" />
         <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest (1)" />
-        <item itemvalue="Gradle.FileBasedDatabaseIntegrationTest|InMemoryDatabaseTest|JpaDatabaseIntegrationTest|SqlDatabaseIntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -496,7 +526,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715948507833</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Lesson 14">
+      <created>1716155077123</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716155077123</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Lesson 14">
+      <created>1716155349218</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716155349218</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +568,8 @@
     <MESSAGE value="Lesson 13 - update after checkstyle" />
     <MESSAGE value="Lesson 13 - update with proper .yml files" />
     <MESSAGE value="Lesson 13 - update with proper .yml files _ v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lesson 13 - update with proper .yml files _ v2" />
+    <MESSAGE value="Lesson 14" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson 14" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/invoicing_name_system_arek_urbanski$InvoiceControllerIntegrationTest_invoice_can_be_modified.ic" NAME="InvoiceControllerIntegrationTest.invoice can be modified Coverage Results" MODIFIED="1715425500165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

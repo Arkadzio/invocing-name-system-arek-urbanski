@@ -1,7 +1,8 @@
-package pl.futurecollars.invoicing.service
+package pl.futurecollars.invoicing.service.invoice
 
 import pl.futurecollars.invoicing.db.Database
 import pl.futurecollars.invoicing.model.Invoice
+import pl.futurecollars.invoicing.service.invoice.InvoiceService
 import spock.lang.Specification
 
 class InvoiceServiceTest extends Specification {
