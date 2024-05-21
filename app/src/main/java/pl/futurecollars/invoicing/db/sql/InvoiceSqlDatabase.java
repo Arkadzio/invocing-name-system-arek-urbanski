@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
-import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -16,8 +15,7 @@ import pl.futurecollars.invoicing.model.Invoice;
 import pl.futurecollars.invoicing.model.InvoiceEntry;
 import pl.futurecollars.invoicing.model.Vat;
 
-@AllArgsConstructor
-public class SqlDatabase implements Database {
+public class InvoiceSqlDatabase extends AbstractSqlDatabase implements Database<Invoice> {
 
   public static final String SELECT_QUERY = "SELECT i.id, i.date, i.number, "
       + "c1.id as buyer_id, c1.tax_identification_number as buyer_tax_identification_number, c1.address as buyer_address, c1.name as buyer_name, "
@@ -28,14 +26,16 @@ public class SqlDatabase implements Database {
       + "inner join company c1 on i.buyer = c1.id "
       + "inner join company c2 on i.seller = c2.id";
 
-  private final JdbcTemplate jdbcTemplate;
+  public InvoiceSqlDatabase(JdbcTemplate jdbcTemplate) {
+    super(jdbcTemplate);
+  }
 
   @Transactional
   @Override
   public long save(Invoice invoice) {
 
-    int buyerId = saveCompany(invoice.getBuyer());
-    int sellerId = saveCompany(invoice.getSeller());
+    int buyerId = insertCompany(invoice.getBuyer());
+    int sellerId = insertCompany(invoice.getSeller());
 
     int invoiceId = insertInvoice(invoice, buyerId, sellerId);
     addEntriesRelatedToInvoice(invoiceId, invoice);
@@ -59,25 +59,6 @@ public class SqlDatabase implements Database {
     return invoiceId;
   }
 
-  private int saveCompany(Company company) {
-    GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-
-    jdbcTemplate.update(connection -> {
-      PreparedStatement preparedStatement =
-          connection.prepareStatement(
-              "INSERT INTO company (name, address, tax_identification_number, pension_insurance, health_insurance) values (?, ?, ?, ?, ?);",
-              new String[] {"id"});
-      preparedStatement.setString(1, company.getName());
-      preparedStatement.setString(2, company.getAddress());
-      preparedStatement.setString(3, company.getTaxIdentificationNumber());
-      preparedStatement.setBigDecimal(4, company.getPensionInsurance());
-      preparedStatement.setBigDecimal(5, company.getHealthInsurance());
-      return preparedStatement;
-    }, keyHolder);
-
-    return keyHolder.getKey().intValue();
-  }
-
   private Integer insertCarAndGetItId(Car car) {
     if (car == null) {
       return null;
@@ -87,10 +68,10 @@ public class SqlDatabase implements Database {
     jdbcTemplate.update(connection -> {
       PreparedStatement preparedStatement = connection
           .prepareStatement(
-              "insert into car (registration_number, personal_user) values (?, ?);",
+              "insert into car (registration_number, personal_use) values (?, ?);",
               new String[] {"id"});
       preparedStatement.setString(1, car.getRegistrationNumber());
-      preparedStatement.setBoolean(2, car.isPersonalUser());
+      preparedStatement.setBoolean(2, car.isPersonalUse());
       return preparedStatement;
     }, keyHolder);
 
@@ -115,8 +96,8 @@ public class SqlDatabase implements Database {
 
       List<InvoiceEntry> invoiceEntries = jdbcTemplate.query(
           "select * from invoice_invoice_entry iie "
-              + "inner join invoice_entry ie on iie.invoice_entry_id = ie.id "
-              + "left outer join car c on ie.expense_related_to_car = c.id "
+              + "inner join invoice_entry e on iie.invoice_entry_id = e.id "
+              + "left outer join car c on e.expense_related_to_car = c.id "
               + "where invoice_id = " + invoiceId,
           (response, ignored) -> InvoiceEntry.builder()
               .description(response.getString("description"))
@@ -127,7 +108,7 @@ public class SqlDatabase implements Database {
               .expenseRelatedToCar(response.getObject("registration_number") != null
                   ? Car.builder()
                   .registrationNumber(response.getString("registration_number"))
-                  .personalUser(response.getBoolean("personal_user"))
+                  .personalUse(response.getBoolean("personal_use"))
                   .build()
                   : null)
               .build());
@@ -169,8 +150,11 @@ public class SqlDatabase implements Database {
       return originalInvoice;
     }
 
-    updateCompany(updatedInvoice.getBuyer(), originalInvoice.get().getBuyer());
-    updateCompany(updatedInvoice.getSeller(), originalInvoice.get().getSeller());
+    updatedInvoice.getBuyer().setId(originalInvoice.get().getBuyer().getId());
+    updateCompany(updatedInvoice.getBuyer());
+
+    updatedInvoice.getSeller().setId(originalInvoice.get().getSeller().getId());
+    updateCompany(updatedInvoice.getSeller());
 
     jdbcTemplate.update(connection -> {
       PreparedStatement preparedStatement =
@@ -190,27 +174,6 @@ public class SqlDatabase implements Database {
     addEntriesRelatedToInvoice(id, updatedInvoice);
 
     return originalInvoice;
-  }
-
-  private void updateCompany(Company buyer, Company buyer2) {
-    jdbcTemplate.update(connection -> {
-      PreparedStatement preparedStatement = connection.prepareStatement(
-          "update company "
-              + "set name=?, "
-              + "address=?, "
-              + "tax_identification_number=?, "
-              + "health_insurance=?, "
-              + "pension_insurance=? "
-              + "where id=?"
-      );
-      preparedStatement.setString(1, buyer.getName());
-      preparedStatement.setString(2, buyer.getAddress());
-      preparedStatement.setString(3, buyer.getTaxIdentificationNumber());
-      preparedStatement.setBigDecimal(4, buyer.getHealthInsurance());
-      preparedStatement.setBigDecimal(5, buyer.getPensionInsurance());
-      preparedStatement.setLong(6, buyer2.getId());
-      return preparedStatement;
-    });
   }
 
   private void addEntriesRelatedToInvoice(long invoiceId, Invoice invoice) {

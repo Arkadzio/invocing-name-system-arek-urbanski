@@ -1,4 +1,4 @@
-package pl.futurecollars.invoicing.service
+package pl.futurecollars.invoicing.service.invoice
 
 import java.time.LocalDate
 import pl.futurecollars.invoicing.db.Database
@@ -23,13 +23,13 @@ class InvoiceServiceIntegrationTest extends Specification {
 
     def "should save invoices returning sequential id, invoice should have id set to correct value, get by id returns saved invoice"() {
         when:
-        def ids = invoices.collect({ service.save(it) })
+        def ids = invoices.collect { service.save(it) }
 
         then:
         ids == (1L..invoices.size()).collect()
-        ids.forEach({ assert service.getById(it).isPresent() })
-        ids.forEach({ assert service.getById(it).get().getId() == it })
-        ids.forEach({ assert service.getById(it).get() == invoices.get((int) it - 1) })
+        ids.forEach { assert service.getById(it).isPresent() }
+        ids.forEach { assert service.getById(it).get().getId() == it }
+        ids.forEach { assert service.getById(it).get() == invoices.get((int) it - 1) }
     }
 
     def "get by id returns empty optional when there is no invoice with given id"() {
@@ -44,27 +44,27 @@ class InvoiceServiceIntegrationTest extends Specification {
 
     def "get all returns all invoices in the database, deleted invoice is not returned"() {
         given:
-        invoices.forEach({ service.save(it) })
+        invoices.forEach { service.save(it) }
 
         expect:
         service.getAll().size() == invoices.size()
-        service.getAll().forEach({ assert it == invoices.get((int) it.getId() - 1) })
+        service.getAll().forEach { assert it == invoices.get((int) it.getId() - 1) }
 
         when:
         service.delete(1)
 
         then:
         service.getAll().size() == invoices.size() - 1
-        service.getAll().forEach({ assert it == invoices.get((int) it.getId() - 1) })
-        service.getAll().forEach({ assert it.getId() != 1 })
+        service.getAll().forEach { assert it == invoices.get((int) it.getId() - 1) }
+        service.getAll().forEach { assert it.getId() != 1 }
     }
 
     def "can delete all invoices"() {
         given:
-        invoices.forEach({ service.save(it) })
+        invoices.forEach { service.save(it) }
 
         when:
-        invoices.forEach({ service.delete(it.getId()) })
+        invoices.forEach { service.delete(it.getId()) }
 
         then:
         service.getAll().isEmpty()
@@ -93,8 +93,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         service.update(213, invoices.get(1)) == Optional.empty()
     }
 
-    def "should save and retrieve invoice from database"()
-    {
+    def "should save and retrieve invoice from database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)
@@ -110,8 +109,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         retrievedInvoice.get().id == savedId
     }
 
-    def "should update invoice in database"()
-    {
+    def "should update invoice in database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)
@@ -129,8 +127,7 @@ class InvoiceServiceIntegrationTest extends Specification {
         retrievedInvoice.get().date == updatedInvoice.date
     }
 
-    def "should delete invoice from database"()
-    {
+    def "should delete invoice from database"() {
         given:
         Database database = new InMemoryDatabase()
         InvoiceService invoiceService = new InvoiceService(database)

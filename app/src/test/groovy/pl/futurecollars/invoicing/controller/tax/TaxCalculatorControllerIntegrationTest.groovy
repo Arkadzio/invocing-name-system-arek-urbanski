@@ -20,12 +20,14 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
         def taxCalculatorResponse = calculateTax(company(0))
 
         then:
-        taxCalculatorResponse.income == 0
-        taxCalculatorResponse.costs == 0
-        taxCalculatorResponse.incomeMinusCosts == 0
-        taxCalculatorResponse.collectedVat == 0
-        taxCalculatorResponse.paidVat == 0
-        taxCalculatorResponse.vatToReturn == 0
+        with(taxCalculatorResponse) {
+            income == 0
+            costs == 0
+            incomeMinusCosts == 0
+            collectedVat == 0
+            paidVat == 0
+            vatToReturn == 0
+        }
     }
 
     def "zeros are returned when tax id is not matching"() {
@@ -33,15 +35,17 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
         addUniqueInvoices(10)
 
         when:
-        def taxCalculatorResponse = calculateTax(company(-14))
+        def taxCalculatorResponse = calculateTax(company(5))
 
         then:
-        taxCalculatorResponse.income == 0
-        taxCalculatorResponse.costs == 0
-        taxCalculatorResponse.incomeMinusCosts == 0
-        taxCalculatorResponse.collectedVat == 0
-        taxCalculatorResponse.paidVat == 0
-        taxCalculatorResponse.vatToReturn == 0
+        with(taxCalculatorResponse) {
+            income == 15000
+            costs == 0
+            incomeMinusCosts == 15000
+            collectedVat == 1200
+            paidVat == 0
+            vatToReturn == 1200
+        }
     }
 
     def "sum of all products is returned when tax id is matching"() {
@@ -52,34 +56,40 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
         def taxCalculatorResponse = calculateTax(company(5))
 
         then:
-        taxCalculatorResponse.income == 15000
-        taxCalculatorResponse.costs == 0
-        taxCalculatorResponse.incomeMinusCosts == 15000
-        taxCalculatorResponse.collectedVat == 1200.0
-        taxCalculatorResponse.paidVat == 0
-        taxCalculatorResponse.vatToReturn == 1200.0
+        with(taxCalculatorResponse) {
+            income == 15000
+            costs == 0
+            incomeMinusCosts == 15000
+            collectedVat == 1200.0
+            paidVat == 0
+            vatToReturn == 1200.0
+        }
 
         when:
         taxCalculatorResponse = calculateTax(company(10))
 
         then:
-        taxCalculatorResponse.income == 55000
-        taxCalculatorResponse.costs == 0
-        taxCalculatorResponse.incomeMinusCosts == 55000
-        taxCalculatorResponse.collectedVat == 4400.0
-        taxCalculatorResponse.paidVat == 0
-        taxCalculatorResponse.vatToReturn == 4400.0
+        with(taxCalculatorResponse) {
+            income == 55000
+            costs == 0
+            incomeMinusCosts == 55000
+            collectedVat == 4400.0
+            paidVat == 0
+            vatToReturn == 4400.0
+        }
 
         when:
         taxCalculatorResponse = calculateTax(company(15))
 
         then:
-        taxCalculatorResponse.income == 0
-        taxCalculatorResponse.costs == 15000
-        taxCalculatorResponse.incomeMinusCosts == -15000
-        taxCalculatorResponse.collectedVat == 0
-        taxCalculatorResponse.paidVat == 1200.0
-        taxCalculatorResponse.vatToReturn == -1200.0
+        with(taxCalculatorResponse) {
+            income == 0
+            costs == 15000
+            incomeMinusCosts == -15000
+            collectedVat == 0
+            paidVat == 1200.0
+            vatToReturn == -1200.0
+        }
     }
 
     def "correct values are returned when company was buyer and seller"() {
@@ -90,14 +100,15 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
         def taxCalculatorResponse = calculateTax(company(12))
 
         then:
-        taxCalculatorResponse.income == 78000
-        taxCalculatorResponse.costs == 3000
-        taxCalculatorResponse.incomeMinusCosts == 75000
-        taxCalculatorResponse.collectedVat == 6240.0
-        taxCalculatorResponse.paidVat == 240.0
-        taxCalculatorResponse.vatToReturn == 6000.0
+        with(taxCalculatorResponse) {
+            income == 78000
+            costs == 3000
+            incomeMinusCosts == 75000
+            collectedVat == 6240.0
+            paidVat == 240.0
+            vatToReturn == 6000.0
+        }
     }
-
 
     def "tax is calculated correctly when car is used for personal purposes"() {
         given:
@@ -114,7 +125,7 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
                                 .quantity(1.0)
                                 .expenseRelatedToCar(
                                         Car.builder()
-                                                .personalUser(true)
+                                                .personalUse(true)
                                                 .registrationNumber("KWI 555234")
                                                 .build()
                                 )
@@ -184,8 +195,8 @@ class TaxCalculatorControllerIntegrationTest extends AbstractControllerTest {
                 .entries(List.of(
                         InvoiceEntry.builder()
                                 .netPrice(11329.47)
-                                .quantity(1.0)
                                 .vatValue(0.0)
+                                .quantity(1.0)
                                 .vatRate(Vat.VAT_ZW)
                                 .build()
                 ))

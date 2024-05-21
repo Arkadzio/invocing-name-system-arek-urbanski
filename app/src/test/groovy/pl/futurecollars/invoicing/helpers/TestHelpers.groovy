@@ -29,7 +29,7 @@ class TestHelpers {
                 .expenseRelatedToCar(id % 2 == 0 ? null :
                         Car.builder()
                                 .registrationNumber("XYZ")
-                                .personalUser(false)
+                                .personalUse(false)
                                 .build()
                 )
                 .build()
@@ -43,5 +43,19 @@ class TestHelpers {
                 .seller(company(id))
                 .entries((1..id).collect({ product(it) }))
                 .build()
+    }
+
+    static Invoice resetIds(Invoice invoice) {
+        invoice.getBuyer().id = 0
+        invoice.getSeller().id = 0
+        invoice.entries.forEach {
+            it.id = 0
+            it.expenseRelatedToCar?.id = 0
+        }
+        invoice
+    }
+
+    static List<Invoice> resetIds(List<Invoice> invoices) {
+        invoices.forEach { invoice -> resetIds(invoice) }
     }
 }

@@ -3,18 +3,21 @@ package pl.futurecollars.invoicing.db
 import pl.futurecollars.invoicing.model.Invoice
 import spock.lang.Specification
 import static pl.futurecollars.invoicing.helpers.TestHelpers.invoice
+import static pl.futurecollars.invoicing.helpers.TestHelpers.resetIds
 
 abstract class AbstractDatabaseTest extends Specification {
 
     List<Invoice> invoices = (1..12).collect { invoice(it) }
 
-    abstract Database getDatabaseInstance()
+    abstract Database<Invoice> getDatabaseInstance()
 
-    Database database
+    Database<Invoice> database
 
     def setup() {
         database = getDatabaseInstance()
-        database.reset()
+        database.getAll().forEach {
+            invoice -> database.delete(invoice.getId())
+        }
 
         assert database.getAll().isEmpty()
     }
@@ -36,10 +39,17 @@ abstract class AbstractDatabaseTest extends Specification {
         then:
         ids.forEach { assert database.getById(it).isPresent() }
         ids.forEach { assert database.getById(it).get().getId() == it }
+    }
+
+    def "get by id returns expected invoice"() {
+        when:
+        def ids = invoices.collect { it.id = database.save(it) }
+
+        then:
         ids.forEach {
-            def expectedInvoice = resetIds(invoices.get((int) it - 1))
-            def invoiceFromDb = resetIds(database.getById(it).get())
-            assert invoiceFromDb.toString() == expectedInvoice.toString()
+            def expectedInvoice = resetIds(invoices.get((int) (it - ids[0]))).toString()
+            def invoiceFromDb = resetIds(database.getById(it).get()).toString()
+            assert invoiceFromDb == expectedInvoice
         }
     }
 
@@ -119,16 +129,5 @@ abstract class AbstractDatabaseTest extends Specification {
         expect:
         database.update(213, invoices.get(1)) == Optional.empty()
     }
-
-    def Invoice resetIds(Invoice invoice) {
-        invoice.getBuyer().id = null
-        invoice.getSeller().id = null
-        invoice.entries.forEach {
-            it.id = null
-            it.expenseRelatedToCar?.id = null
-        }
-        invoice
-    }
-
 
 }
