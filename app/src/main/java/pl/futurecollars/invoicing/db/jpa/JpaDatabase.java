@@ -7,7 +7,6 @@ import java.util.stream.StreamSupport;
 import lombok.AllArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import pl.futurecollars.invoicing.db.Database;
-import pl.futurecollars.invoicing.model.Invoice;
 import pl.futurecollars.invoicing.model.WithId;
 
 @AllArgsConstructor

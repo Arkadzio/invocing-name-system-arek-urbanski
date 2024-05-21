@@ -15,7 +15,7 @@ import pl.futurecollars.invoicing.utils.JsonService;
 public class FileBasedDatabase<T extends WithId> implements Database<T> {
 
   private final Path databasePath;
-  private final IdService idService;
+  private final IdService idProvider;
   private final FilesService filesService;
   private final JsonService jsonService;
   private final Class<T> clazz;
@@ -23,7 +23,7 @@ public class FileBasedDatabase<T extends WithId> implements Database<T> {
   @Override
   public long save(T item) {
     try {
-      item.setId(idService.getNextIdAndIncrement());
+      item.setId(idProvider.getNextIdAndIncrement());
       filesService.appendLineToFile(databasePath, jsonService.toJson(item));
 
       return item.getId();
@@ -68,7 +68,7 @@ public class FileBasedDatabase<T extends WithId> implements Database<T> {
 
       updatedItem.setId(id);
       itemsWithoutItemWithGivenId.add(jsonService.toJson(updatedItem));
-      filesService.writeAllLinesToFile(databasePath, itemsWithoutItemWithGivenId);
+      filesService.writeLinesToFile(databasePath, itemsWithoutItemWithGivenId);
       allItems.removeAll(itemsWithoutItemWithGivenId);
       return allItems.isEmpty() ? Optional.empty() :
           Optional.of(jsonService.toObject(allItems.get(0), clazz));
@@ -87,7 +87,7 @@ public class FileBasedDatabase<T extends WithId> implements Database<T> {
           .filter(line -> !containsId(line, id))
           .collect(Collectors.toList());
 
-      filesService.writeAllLinesToFile(databasePath, itemsExceptDeleted);
+      filesService.writeLinesToFile(databasePath, itemsExceptDeleted);
       allItems.removeAll(itemsExceptDeleted);
       return allItems.isEmpty() ? Optional.empty() :
           Optional.of(jsonService.toObject(allItems.get(0), clazz));
@@ -98,6 +98,6 @@ public class FileBasedDatabase<T extends WithId> implements Database<T> {
   }
 
   private boolean containsId(String line, long id) {
-    return line.contains("\"id\":" + id + ",");
+    return line.contains("{\"id\":" + id + ",");
   }
 }

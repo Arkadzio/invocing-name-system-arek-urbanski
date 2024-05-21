@@ -49,8 +49,8 @@ public class InvoiceEntry {
   @ApiModelProperty(value = "tax rate", required = true)
   private Vat vatRate;
 
-  @OneToOne(cascade = ALL, orphanRemoval = true)
   @JoinColumn(name = "expense_related_to_car")
+  @OneToOne(cascade = ALL, orphanRemoval = true)
   @ApiModelProperty(value = "Car this expense is related to, empty if expense is not related to car")
   private Car expenseRelatedToCar;
 }

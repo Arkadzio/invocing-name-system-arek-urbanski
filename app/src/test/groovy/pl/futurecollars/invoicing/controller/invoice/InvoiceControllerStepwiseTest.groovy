@@ -52,7 +52,7 @@ class InvoiceControllerStepwiseTest extends Specification {
         database.getAll().size() == 0
     }
 
-    def "empty array is returned when no invoices were created"() {
+    def "empty array is returned when no invoices were added"() {
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders.get("/invoices"))
                 .andExpect(MockMvcResultMatchers.status().isOk())

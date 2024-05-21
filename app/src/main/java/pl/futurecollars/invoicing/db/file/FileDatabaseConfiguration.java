@@ -18,7 +18,7 @@ import pl.futurecollars.invoicing.utils.JsonService;
 public class FileDatabaseConfiguration {
 
   @Bean
-  public IdService idService(
+  public IdService idProvider(
       FilesService filesService,
       @Value("${invoicing-system.database.directory}") String databaseDirectory,
       @Value("${invoicing-system.database.id.file}") String idFile
@@ -29,25 +29,25 @@ public class FileDatabaseConfiguration {
 
   @Bean
   public Database<Invoice> invoiceFileBasedDatabase(
-      IdService idService,
+      IdService idProvider,
       FilesService filesService,
       JsonService jsonService,
       @Value("${invoicing-system.database.directory}") String databaseDirectory,
       @Value("${invoicing-system.database.invoices.file}") String invoicesFile
   ) throws IOException {
     Path databaseFilePath = Files.createTempFile(databaseDirectory, invoicesFile);
-    return new FileBasedDatabase<>(databaseFilePath, idService, filesService, jsonService, Invoice.class);
+    return new FileBasedDatabase<>(databaseFilePath, idProvider, filesService, jsonService, Invoice.class);
   }
 
   @Bean
   public Database<Company> companyFileBasedDatabase(
-      IdService idService,
+      IdService idProvider,
       FilesService filesService,
       JsonService jsonService,
       @Value("${invoicing-system.database.directory}") String databaseDirectory,
       @Value("${invoicing-system.database.companies.file}") String companiesFile
   ) throws IOException {
     Path databaseFilePath = Files.createTempFile(databaseDirectory, companiesFile);
-    return new FileBasedDatabase<>(databaseFilePath, idService, filesService, jsonService, Company.class);
+    return new FileBasedDatabase<>(databaseFilePath, idProvider, filesService, jsonService, Company.class);
   }
 }

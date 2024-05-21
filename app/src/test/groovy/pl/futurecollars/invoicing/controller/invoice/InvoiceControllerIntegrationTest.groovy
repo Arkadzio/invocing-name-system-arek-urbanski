@@ -102,7 +102,7 @@ class InvoiceControllerIntegrationTest extends AbstractControllerTest {
     def "invoice can be modified"() {
         given:
         def id = addInvoiceAndReturnId(invoice(44))
-        def updatedInvoice = invoice(123)
+        def updatedInvoice = invoice(12)
         updatedInvoice.id = id
 
         expect:

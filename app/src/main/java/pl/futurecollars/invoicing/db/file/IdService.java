@@ -18,7 +18,7 @@ public class IdService {
     try {
       List<String> lines = filesService.readAllLines(idFilePath);
       if (lines.isEmpty()) {
-        filesService.writeSingleLineToFile(idFilePath, "1");
+        filesService.writeToFile(idFilePath, "1");
       } else {
         nextId = Integer.parseInt(lines.get(0));
       }
@@ -29,7 +29,7 @@ public class IdService {
 
   public long getNextIdAndIncrement() {
     try {
-      filesService.writeSingleLineToFile(idFilePath, String.valueOf(nextId + 1));
+      filesService.writeToFile(idFilePath, String.valueOf(nextId + 1));
       return nextId++;
     } catch (IOException e) {
       throw new RuntimeException(e);

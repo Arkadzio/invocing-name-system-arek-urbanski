@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.futurecollars.invoicing.model.Invoice;
 
-@RequestMapping("invoices")
+@RequestMapping(value = "invoices", produces = {"application/json;charset=UTF-8"})
 @Api(tags = {"invoice-controller"})
 public interface InvoiceApi {
 

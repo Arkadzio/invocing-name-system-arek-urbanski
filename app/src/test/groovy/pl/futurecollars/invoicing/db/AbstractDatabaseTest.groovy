@@ -39,10 +39,17 @@ abstract class AbstractDatabaseTest extends Specification {
         then:
         ids.forEach { assert database.getById(it).isPresent() }
         ids.forEach { assert database.getById(it).get().getId() == it }
+    }
+
+    def "get by id returns expected invoice"() {
+        when:
+        def ids = invoices.collect { it.id = database.save(it) }
+
+        then:
         ids.forEach {
-            def expectedInvoice = resetIds(invoices.get((int) it - 1))
-            def invoiceFromDb = resetIds(database.getById(it).get())
-            assert invoiceFromDb.toString() == expectedInvoice.toString()
+            def expectedInvoice = resetIds(invoices.get((int) (it - ids[0]))).toString()
+            def invoiceFromDb = resetIds(database.getById(it).get()).toString()
+            assert invoiceFromDb == expectedInvoice
         }
     }
 
@@ -122,4 +129,5 @@ abstract class AbstractDatabaseTest extends Specification {
         expect:
         database.update(213, invoices.get(1)) == Optional.empty()
     }
+
 }

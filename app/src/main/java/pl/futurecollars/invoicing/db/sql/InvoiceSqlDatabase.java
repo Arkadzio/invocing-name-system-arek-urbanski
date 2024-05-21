@@ -68,10 +68,10 @@ public class InvoiceSqlDatabase extends AbstractSqlDatabase implements Database<
     jdbcTemplate.update(connection -> {
       PreparedStatement preparedStatement = connection
           .prepareStatement(
-              "insert into car (registration_number, personal_user) values (?, ?);",
+              "insert into car (registration_number, personal_use) values (?, ?);",
               new String[] {"id"});
       preparedStatement.setString(1, car.getRegistrationNumber());
-      preparedStatement.setBoolean(2, car.isPersonalUser());
+      preparedStatement.setBoolean(2, car.isPersonalUse());
       return preparedStatement;
     }, keyHolder);
 
@@ -96,8 +96,8 @@ public class InvoiceSqlDatabase extends AbstractSqlDatabase implements Database<
 
       List<InvoiceEntry> invoiceEntries = jdbcTemplate.query(
           "select * from invoice_invoice_entry iie "
-              + "inner join invoice_entry ie on iie.invoice_entry_id = ie.id "
-              + "left outer join car c on ie.expense_related_to_car = c.id "
+              + "inner join invoice_entry e on iie.invoice_entry_id = e.id "
+              + "left outer join car c on e.expense_related_to_car = c.id "
               + "where invoice_id = " + invoiceId,
           (response, ignored) -> InvoiceEntry.builder()
               .description(response.getString("description"))
@@ -108,7 +108,7 @@ public class InvoiceSqlDatabase extends AbstractSqlDatabase implements Database<
               .expenseRelatedToCar(response.getObject("registration_number") != null
                   ? Car.builder()
                   .registrationNumber(response.getString("registration_number"))
-                  .personalUser(response.getBoolean("personal_user"))
+                  .personalUse(response.getBoolean("personal_use"))
                   .build()
                   : null)
               .build());

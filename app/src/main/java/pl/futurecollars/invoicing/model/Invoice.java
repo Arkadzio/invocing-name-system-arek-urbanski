@@ -36,18 +36,18 @@ public class Invoice implements WithId {
   @ApiModelProperty(value = "Invoice number (assigned by user)", required = true, example = "2020/05/12/007")
   private String number;
 
-  @OneToOne(cascade = ALL)
   @JoinColumn(name = "buyer")
+  @OneToOne(cascade = ALL)
   @ApiModelProperty(value = "Company which bought product/service", required = true)
   private Company buyer;
 
-  @OneToOne(cascade = ALL)
   @JoinColumn(name = "seller")
+  @OneToOne(cascade = ALL)
   @ApiModelProperty(value = "Company which is selling the product/service", required = true)
   private Company seller;
 
-  @OneToMany(cascade = ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   @JoinTable(name = "invoice_invoice_entry", inverseJoinColumns = @JoinColumn(name = "invoice_entry_id"))
+  @OneToMany(cascade = ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   @ApiModelProperty(value = "List of products/services", required = true)
   private List<InvoiceEntry> entries;
 }

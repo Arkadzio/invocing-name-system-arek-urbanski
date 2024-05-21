@@ -11,7 +11,7 @@ import pl.futurecollars.invoicing.db.Database
 class JpaDatabaseIntegrationTest extends AbstractDatabaseTest {
 
     @Autowired
-    private InvoiceRepository invoiceRepository;
+    private InvoiceRepository invoiceRepository
 
     @Override
     Database getDatabaseInstance() {

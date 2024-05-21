@@ -6,20 +6,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import pl.futurecollars.invoicing.db.Database;
-import pl.futurecollars.invoicing.model.Invoice;
 import pl.futurecollars.invoicing.model.WithId;
 
 public class InMemoryDatabase<T extends WithId> implements Database<T> {
 
   private final Map<Long, T> items = new HashMap<>();
-  private long nextID = 1;
+  private long nextId = 1;
 
   @Override
   public long save(T item) {
-    item.setId(nextID);
-    items.put(nextID, item);
+    item.setId(nextId);
+    items.put(nextId, item);
 
-    return nextID++;
+    return nextId++;
   }
 
   @Override

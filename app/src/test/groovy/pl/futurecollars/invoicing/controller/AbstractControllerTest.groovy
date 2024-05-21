@@ -32,12 +32,7 @@ class AbstractControllerTest extends Specification {
 
     def setup() {
         getAllInvoices().each { invoice -> deleteInvoice(invoice.id) }
-//        getAllCompanies().each { company -> deleteCompany(company.id) }
-        getAllCompanies().each { company ->
-            if (company.id != null) {
-                deleteCompany(company.id)
-            }
-        }
+        getAllCompanies().each { company -> deleteCompany(company.id) }
     }
 
     int addInvoiceAndReturnId(Invoice invoice) {

@@ -1,9 +1,5 @@
 package pl.futurecollars.invoicing.utils
 
-import com.fasterxml.jackson.core.JsonProcessingException
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import pl.futurecollars.invoicing.helpers.TestHelpers
 import pl.futurecollars.invoicing.model.Invoice
 import spock.lang.Specification
@@ -11,10 +7,10 @@ import spock.lang.Specification
 
 class JsonServiceTest extends Specification {
 
-    def "should convert object to JSON"() {
+    def "can convert object to json and read it back"() {
         given:
         def jsonService = new JsonService()
-        def invoice = TestHelpers.invoice(1)
+        def invoice = TestHelpers.invoice(12)
 
         when:
         def invoiceAsString = jsonService.toJson(invoice)

@@ -1,7 +1,6 @@
 package pl.futurecollars.invoicing.service.invoice
 
 import pl.futurecollars.invoicing.db.Database
-import pl.futurecollars.invoicing.service.invoice.InvoiceService
 import spock.lang.Specification
 import static pl.futurecollars.invoicing.helpers.TestHelpers.invoice
 
@@ -12,7 +11,7 @@ class InvoiceServiceUnitTest extends Specification {
 
     def setup() {
         database = Mock()
-        service = new InvoiceService(database);
+        service = new InvoiceService(database)
     }
 
     def "calling save() should delegate to database save() method"() {

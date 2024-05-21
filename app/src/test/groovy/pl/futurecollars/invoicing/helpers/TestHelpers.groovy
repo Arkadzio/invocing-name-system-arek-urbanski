@@ -29,7 +29,7 @@ class TestHelpers {
                 .expenseRelatedToCar(id % 2 == 0 ? null :
                         Car.builder()
                                 .registrationNumber("XYZ")
-                                .personalUser(false)
+                                .personalUse(false)
                                 .build()
                 )
                 .build()
