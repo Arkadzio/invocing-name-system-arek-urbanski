@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Lesson 14">
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/public/company.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/public/company.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/public/company.js" afterDir="false" />
+    <list default="true" id="dca5663c-375b-4a00-be41-a57cd9b99089" name="Changes" comment="Angular commit">
+      <change afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/company.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/company.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/invoicing-app/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pl/futurecollars/invoicing/controller/company/CompanyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,22 +138,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "Spock",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit": "groovy.util.GroovyTestCase",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock": "spock.lang.Specification",
-    "last_opened_file_path": "C:/Users/areku/Java_projects/invoicing-name-system-arek-urbanski/app/src/test/resources",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3659379",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;Spock&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit&quot;: &quot;groovy.util.GroovyTestCase&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Spock&quot;: &quot;spock.lang.Specification&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/areku/Java_projects/invoicing-name-system-arek-urbanski/app/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3659379&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\areku\Java_projects\invoicing-name-system-arek-urbanski\app\src\test\resources" />
@@ -500,8 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1716155349218</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Angular commit">
+      <created>1716462750412</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716462750412</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -529,7 +548,8 @@
     <MESSAGE value="Lesson 13 - update with proper .yml files" />
     <MESSAGE value="Lesson 13 - update with proper .yml files _ v2" />
     <MESSAGE value="Lesson 14" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lesson 14" />
+    <MESSAGE value="Angular commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Angular commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/invoicing_name_system_arek_urbanski$InvoiceControllerIntegrationTest_invoice_can_be_modified.ic" NAME="InvoiceControllerIntegrationTest.invoice can be modified Coverage Results" MODIFIED="1715425500165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
