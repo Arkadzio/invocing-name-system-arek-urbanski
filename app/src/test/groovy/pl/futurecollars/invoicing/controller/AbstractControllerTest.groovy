@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
 import pl.futurecollars.invoicing.model.Company
 import pl.futurecollars.invoicing.model.Invoice
@@ -11,11 +12,13 @@ import pl.futurecollars.invoicing.service.tax.TaxCalculatorResult
 import pl.futurecollars.invoicing.utils.JsonService
 import spock.lang.Specification
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import static pl.futurecollars.invoicing.helpers.TestHelpers.company
 import static pl.futurecollars.invoicing.helpers.TestHelpers.invoice
 
+@WithMockUser
 @AutoConfigureMockMvc
 @SpringBootTest
 class AbstractControllerTest extends Specification {
@@ -68,12 +71,12 @@ class AbstractControllerTest extends Specification {
     }
 
     void deleteInvoice(long id) {
-        mockMvc.perform(delete("$INVOICE_ENDPOINT/$id"))
+        mockMvc.perform(delete("$INVOICE_ENDPOINT/$id").with(csrf()))
                 .andExpect(status().isNoContent())
     }
 
     void deleteCompany(long id) {
-        mockMvc.perform(delete("$COMPANY_ENDPOINT/$id"))
+        mockMvc.perform(delete("$COMPANY_ENDPOINT/$id").with(csrf()))
                 .andExpect(status().isNoContent())
     }
 
@@ -98,6 +101,7 @@ class AbstractControllerTest extends Specification {
                 post("$TAX_CALCULATOR_ENDPOINT")
                         .content(jsonService.toJson(company))
                         .contentType(MediaType.APPLICATION_JSON)
+                        .with(csrf())
         )
                 .andExpect(status().isOk())
                 .andReturn()
@@ -113,6 +117,7 @@ class AbstractControllerTest extends Specification {
                         post(endpoint)
                                 .content(jsonService.toJson(item))
                                 .contentType(MediaType.APPLICATION_JSON)
+                                .with(csrf())
                 )
                         .andExpect(status().isOk())
                         .andReturn()
