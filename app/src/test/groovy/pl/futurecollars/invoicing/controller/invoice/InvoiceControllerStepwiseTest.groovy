@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers
@@ -16,10 +17,12 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Stepwise
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf
 import static pl.futurecollars.invoicing.helpers.TestHelpers.resetIds
 
 import java.time.LocalDate
 
+@WithMockUser
 @AutoConfigureMockMvc
 @SpringBootTest
 @Stepwise
@@ -73,6 +76,7 @@ class InvoiceControllerStepwiseTest extends Specification {
                 MockMvcRequestBuilders.post("/invoices")
                         .content(invoiceAsJson)
                         .contentType(MediaType.APPLICATION_JSON)
+                        .with(csrf())
         )
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn()
@@ -131,7 +135,9 @@ class InvoiceControllerStepwiseTest extends Specification {
         mockMvc.perform(
                 MockMvcRequestBuilders.put("/invoices/$invoiceId")
                         .content(invoiceAsJson)
-                        .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .with(csrf())
+        )
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isNoContent())
     }
@@ -157,15 +163,15 @@ class InvoiceControllerStepwiseTest extends Specification {
 
     def "invoice can be deleted"() {
         expect:
-        mockMvc.perform(MockMvcRequestBuilders.delete("/invoices/$invoiceId"))
+        mockMvc.perform(MockMvcRequestBuilders.delete("/invoices/$invoiceId").with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isNoContent())
 
         and:
-        mockMvc.perform(MockMvcRequestBuilders.delete("/invoices/$invoiceId"))
+        mockMvc.perform(MockMvcRequestBuilders.delete("/invoices/$invoiceId").with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
 
         and:
-        mockMvc.perform(MockMvcRequestBuilders.get("/invoices/$invoiceId"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/invoices/$invoiceId").with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
     }
 }

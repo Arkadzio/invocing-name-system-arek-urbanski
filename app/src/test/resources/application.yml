@@ -16,3 +16,8 @@ spring:
     active: jpa-flyway
   flyway:
     enabled: false
+
+invoicing-system:
+  allowedOrigins: http://localhost:4200
+  csrf:
+    disable: true
